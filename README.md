@@ -1,8 +1,17 @@
-# Raycast Windows 简体中文组件（预览版）
+# Raycast Windows 汉化｜简体中文界面与插件汉化包
 
 适配 Microsoft Store 版 **Raycast 2.4.0.0 x64**，非官方项目。
 
-[下载 Windows 汉化包](https://github.com/zwjtano/raycast-windows-zh-CN/releases/tag/windows-v2.4.0.0-preview.1) · [100 个插件清单与检查结果](docs/extensions.md) · [macOS 独立项目](https://github.com/zwjtano/raycast-macos-zh-CN)
+Raycast Windows Simplified Chinese Localization：为 Raycast 主界面、设置、托盘菜单与热门插件提供中文显示，附安装和卸载恢复工具。当前为预览版。
+
+## 选择你的平台
+
+| 平台 | 项目与安装说明 | 汉化包下载 |
+| --- | --- | --- |
+| Windows · 2.4.0.0 x64 | [Raycast Windows 汉化](https://github.com/zwjtano/raycast-windows-zh-CN) | [Windows 下载](https://github.com/zwjtano/raycast-windows-zh-CN/releases) |
+| macOS · 2.4.1.0 Apple Silicon | [Raycast macOS 汉化](https://github.com/zwjtano/raycast-macos-zh-CN) | [macOS 下载](https://github.com/zwjtano/raycast-macos-zh-CN/releases/latest) |
+
+[下载 Windows 汉化包](https://github.com/zwjtano/raycast-windows-zh-CN/releases/tag/windows-v2.4.0.0-preview.2) · [100 个插件清单与检查结果](docs/extensions.md) · [macOS 独立项目](https://github.com/zwjtano/raycast-macos-zh-CN)
 
 ## 使用
 
@@ -31,9 +40,13 @@ Windows 安装包启用了内容完整性校验。本组件不写入 WindowsApps
 
 **源码检查不等于逐页实测。** 本机验收包含主界面、设置、Video Downloader 初始表单和托盘模块状态。登录后、付费、外部设备及第三方服务页面未逐个验收。动态拼接文字、自定义组件、服务返回内容及未命中的说明仍可能保留英文。AI 回复、代码、输入框值、可编辑正文不作为动态替换目标。插件仅限 macOS 的子功能不会因汉化获得 Windows 支持。
 
-![主界面](docs/screenshots/windows-main.png)
+Preview 2 补充商店列表和详情页的显示转换，包含上述 100 个插件的介绍译文；商品名与品牌名按原名保留，Google Translate 显示为“Google 翻译”。已在本机确认商店列表中的 Google 翻译、VS Code、Linear、Slack、1Password 和 Notion 介绍显示中文。
 
-![Video Downloader](docs/screenshots/windows-video-downloader.png)
+![Raycast Windows 插件商店中文介绍与扩展列表](docs/screenshots/windows-store.png)
+
+![Raycast Windows 简体中文主界面](docs/screenshots/windows-main.png)
+
+![Raycast Windows Video Downloader 插件中文下载表单](docs/screenshots/windows-video-downloader.png)
 
 此版本为预览版；译文条目数、静态替换数量不等于实测页面覆盖率。实际验证范围请参阅 Release 说明。
 

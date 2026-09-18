@@ -3,10 +3,12 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { translateSource } from '../src/transform.mjs';
+import {storeDisplayEdits} from '../src/store-transform.mjs';
 
 const dictionary = JSON.parse(await fs.readFile('translations/zh-CN.json', 'utf8'));
 Object.assign(dictionary,JSON.parse(await fs.readFile('translations/windows.json','utf8')));
 Object.assign(dictionary,JSON.parse(await fs.readFile('translations/plugins-windows.json','utf8')));
+Object.assign(dictionary,JSON.parse(await fs.readFile('translations/store.json','utf8')));
 Object.assign(dictionary, {
   'Show in File Explorer': '在文件资源管理器中显示', 'Open in File Explorer': '在文件资源管理器中打开',
   'Windows Settings': 'Windows 设置', 'Launch at Login': '登录时启动',
@@ -21,12 +23,14 @@ const root = path.join(packageInfo.InstallLocation, 'Raycast');
 const out = 'dist/Raycast-Windows-2.4.0.0-zh-CN-preview';
 await fs.mkdir(out, { recursive: true });
 const hash = data => createHash('sha256').update(data).digest('hex');
-const manifest = { format: 1, patchVersion: '0.1.0-preview.1', appVersion: packageInfo.Version,
+const manifest = { format: 1, patchVersion: '0.1.0-preview.2', appVersion: packageInfo.Version,
   architecture:'x64', family: packageInfo.PackageFamilyName, files: {},
   dictionaryEntries: Object.keys(dictionary).length, translatedOccurrences: 0 };
 for (const name of (await fs.readdir(path.join(root, 'frontend'))).filter(x => x.endsWith('.js'))) {
   const original = await fs.readFile(path.join(root, 'frontend', name), 'utf8');
   const result = translateSource(original, dictionary);
+  result.edits.push(...storeDisplayEdits(original));
+  result.edits.sort((a,b)=>b.start-a.start);
   if (!result.edits.length) continue;
   manifest.files[name] = { sha256: hash(Buffer.from(original)), edits: result.edits.map(({value,...e})=>e) };
   manifest.translatedOccurrences += result.edits.length;

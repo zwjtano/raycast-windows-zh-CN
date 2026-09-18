@@ -68,6 +68,7 @@
       characterData: true, attributes: true, attributeFilter: attributes });
   }
   window.__raycastZhCN = {
+    storeText(value) { return typeof value==='string' && Object.hasOwn(dictionary,value) ? dictionary[value] : value; },
     version: '0.1.0', get translatedControls() { return count; },
     stop() {
       enabled = false; observer.disconnect();
