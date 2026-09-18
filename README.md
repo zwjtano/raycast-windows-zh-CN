@@ -11,11 +11,11 @@ Raycast Windows Simplified Chinese Localization：为 Raycast 主界面、设置
 | Windows · 2.4.0.0 x64 | [Raycast Windows 汉化](https://github.com/zwjtano/raycast-windows-zh-CN) | [Windows 下载](https://github.com/zwjtano/raycast-windows-zh-CN/releases) |
 | macOS · 2.4.1.0 Apple Silicon | [Raycast macOS 汉化](https://github.com/zwjtano/raycast-macos-zh-CN) | [macOS 下载](https://github.com/zwjtano/raycast-macos-zh-CN/releases/latest) |
 
-[下载 Windows 汉化包](https://github.com/zwjtano/raycast-windows-zh-CN/releases/tag/v2.4.0.0-r3) · [100 个插件清单与检查结果](docs/extensions.md) · [macOS 独立项目](https://github.com/zwjtano/raycast-macos-zh-CN)
+[下载 Windows 汉化包](https://github.com/zwjtano/raycast-windows-zh-CN/releases/tag/v2.4.0.0-r4) · [100 个插件清单与检查结果](docs/extensions.md) · [macOS 独立项目](https://github.com/zwjtano/raycast-macos-zh-CN)
 
 ## 使用
 
-1. 完整解压 Windows ZIP；如装有旧版，先运行旧版卸载工具。
+1. 完整解压 Windows ZIP 到任意目录（支持中文和空格）。如装有旧版，先运行本包的 `卸载汉化.cmd`，它兼容旧安装位置。
 2. 保存内容，从 Raycast 托盘菜单选择 **Quit**，再双击 `安装汉化.cmd`，允许管理员授权。
 3. 以后直接使用**原版 Raycast 图标、开始菜单或原有热键**。不创建额外中文快捷方式。
 4. 双击 `卸载汉化.cmd`，允许管理员授权；也可在 Windows“已安装的应用”中卸载“Raycast 简体中文组件”。卸载会退出 Raycast、恢复插件备份并重新打开原版。
@@ -23,6 +23,8 @@ Raycast Windows Simplified Chinese Localization：为 Raycast 主界面、设置
 无需额外安装 Node、Python 或开发工具；运行时使用 Raycast 自带的 Node。汉化后台随当前用户登录启动，只等待原版 Raycast，不会替你自动启动 Raycast。初次加载可能先出现英文，再刷新为中文。
 
 **托盘右键菜单保留英文。** r3 使用原版入口加载，不再使用 r2 的独立启动器和原生托盘模块。这是独立汉化组件，不是商店扩展。Raycast 更新后需卸载旧组件，等待对应版本的汉化包。
+
+r4 修复安装位置受启动环境影响的问题：所有新安装统一放在 `%USERPROFILE%\.raycast-zh-CN`，与解压目录、当前工作目录无关。卸载器同时查找旧版普通目录和打包应用重定向目录，避免误报“尚未安装”。
 
 ## 原理与边界
 
@@ -52,11 +54,11 @@ r2 补充商店列表和详情页的显示转换，包含上述 100 个插件的
 
 ## 状态和故障处理
 
-双击 `检查状态.cmd`。状态与错误日志位于 `%LOCALAPPDATA%\Raycast-zh-CN\runtime`。插件结果在 `plugin-status.json`，备份在 `plugin-backups`。
+双击 `检查状态.cmd`。状态与错误日志位于 `%USERPROFILE%\.raycast-zh-CN\runtime`。插件结果在 `plugin-status.json`，备份在 `plugin-backups`。
 
 如启动未显示中文，先检查后台状态。若关闭了组件的登录启动项，请重新启用后重新登录 Windows；也可运行安装目录内的 `bundle/watch.ps1` 启动后台，然后重新打开原版 Raycast。若遇指纹不匹配，不要修改校验文件。卸载后使用官方原版即可。
 
-安装文件位于 `%LOCALAPPDATA%\Raycast-zh-CN`。卸载只移除安装清单记录的组件文件、本组件登录启动项和匹配的加载参数，保留用户自行放入的额外文件。r3 不安装原生菜单模块。
+安装文件位于 `%USERPROFILE%\.raycast-zh-CN`。卸载只移除安装清单记录的组件文件、本组件登录启动项和匹配的加载参数，保留用户自行放入的额外文件。r3 不安装原生菜单模块。
 
 ## 开发
 

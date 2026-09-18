@@ -1,7 +1,25 @@
 param([ValidateSet('install','uninstall','status')][string]$Action='install',[switch]$NoLaunch)
 $ErrorActionPreference='Stop'
 $product='Raycast-zh-CN-Windows'
-$installRoot=Join-Path $env:LOCALAPPDATA 'Raycast-zh-CN'
+$installRoot=Join-Path $env:USERPROFILE '.raycast-zh-CN'
+# Packaged parent processes can redirect LocalAppData writes into their private
+# LocalCache. Prefer the physical legacy directory so Explorer sees the same files.
+$legacyRoots=@()
+$packages=Join-Path $env:USERPROFILE 'AppData/Local/Packages'
+foreach($package in @(Get-ChildItem -LiteralPath $packages -Directory -ErrorAction SilentlyContinue)){
+    $candidate=Join-Path $package.FullName 'LocalCache/Local/Raycast-zh-CN'
+    if(Test-Path -LiteralPath (Join-Path $candidate 'installation.json')){$legacyRoots+=$candidate}
+}
+$legacyRoots+=Join-Path $env:LOCALAPPDATA 'Raycast-zh-CN'
+if(-not(Test-Path -LiteralPath (Join-Path $installRoot 'installation.json'))){
+    foreach($candidate in $legacyRoots){
+        $candidateMarker=Join-Path $candidate 'installation.json'
+        if(Test-Path -LiteralPath $candidateMarker){
+            $candidateRecord=Get-Content -LiteralPath $candidateMarker -Raw -Encoding UTF8|ConvertFrom-Json
+            if($candidateRecord.product -eq $product){$installRoot=[IO.Path]::GetFullPath($candidate);break}
+        }
+    }
+}
 $markerPath=Join-Path $installRoot 'installation.json'
 $nativeRoot=Join-Path $env:LOCALAPPDATA 'Packages/Raycast.Raycast_qypenmj9wpt2a/LocalState/Raycast-zh-CN'
 $uninstallKey='HKCU:/Software/Microsoft/Windows/CurrentVersion/Uninstall/Raycast-zh-CN'
@@ -71,13 +89,17 @@ try {
         if(Test-Path -LiteralPath $statusFile){
             $lastStatus=Get-Content -LiteralPath $statusFile -Raw -Encoding UTF8|ConvertFrom-Json
             $worker=Get-CimInstance Win32_Process -Filter "ProcessId=$($lastStatus.pid)" -ErrorAction SilentlyContinue
-            if($worker -and $worker.CommandLine.Contains((Safe-Child 'bundle/agent.mjs'))){
+            $workerAgent=(Safe-Child 'bundle/agent.mjs')
+            if(Test-Path -LiteralPath $config){$workerAgent=(Get-Content -LiteralPath $config -Raw -Encoding UTF8|ConvertFrom-Json).bundle+'\agent.mjs'}
+            if($worker -and $worker.CommandLine -and $worker.CommandLine.Contains($workerAgent)){
                 $workerProcess=Get-Process -Id $lastStatus.pid -ErrorAction SilentlyContinue
                 if($workerProcess -and -not $workerProcess.WaitForExit(15000)){throw '汉化进程正在退出，请稍后重试。'}
             }
         }
         $runValue=(Get-ItemProperty -LiteralPath $runKey -Name 'Raycast-zh-CN' -ErrorAction SilentlyContinue).'Raycast-zh-CN'
-        if($runValue -and $runValue.Contains((Safe-Child 'bundle/watch.ps1'))){Remove-ItemProperty -LiteralPath $runKey -Name 'Raycast-zh-CN'}
+        $watchPaths=@((Safe-Child 'bundle/watch.ps1'))
+        if(Test-Path -LiteralPath $config){$watchPaths+=Join-Path ((Get-Content -LiteralPath $config -Raw -Encoding UTF8|ConvertFrom-Json).bundle) 'watch.ps1'}
+        if($runValue -and @($watchPaths|Where-Object {$runValue.Contains($_)}).Count -gt 0){Remove-ItemProperty -LiteralPath $runKey -Name 'Raycast-zh-CN'}
         $patcher=Safe-Child 'bundle/plugin-patcher.cjs'
         if(Test-Path -LiteralPath $patcher){
             $restored=& $node $patcher restore $installRoot

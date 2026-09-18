@@ -2,7 +2,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { CDP } from '../src/agent.mjs';
-const root=path.join(process.env.LOCALAPPDATA,'Raycast-zh-CN');
+const root=path.join(process.env.USERPROFILE,'.raycast-zh-CN');
 const config=JSON.parse(await fs.readFile(path.join(root,'runtime/config.json'),'utf8'));
 const targets=await(await fetch(`http://127.0.0.1:${config.port}/json/list`)).json();
 const target=targets.find(t=>t.url.endsWith(process.argv[3] || 'main-window.html'));
