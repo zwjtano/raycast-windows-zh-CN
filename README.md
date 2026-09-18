@@ -35,8 +35,6 @@ Windows 安装包启用了内容完整性校验。本组件不写入 WindowsApps
 
 ![Video Downloader](docs/screenshots/windows-video-downloader.png)
 
-![设置](docs/screenshots/windows-settings.png)
-
 此版本为预览版；译文条目数、静态替换数量不等于实测页面覆盖率。实际验证范围请参阅 Release 说明。
 
 ## 状态和故障处理

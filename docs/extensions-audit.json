@@ -1,0 +1,1305 @@
+{
+  "checkedAt": "2026-09-18",
+  "extensions": [
+    {
+      "name": "kill-process",
+      "title": "Kill Process",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/kill-process/package.json",
+      "sha": "b4c8578a8667476bc611047824761a76280c17c8",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 29,
+      "matchedMetadataTextCount": 27
+    },
+    {
+      "name": "color-picker",
+      "title": "Color Picker",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/color-picker/package.json",
+      "sha": "2bafcaaf09d15836436d014f2103572c2652ca88",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 47,
+      "matchedMetadataTextCount": 33
+    },
+    {
+      "name": "translate",
+      "title": "Google Translate",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/google-translate/package.json",
+      "sha": "5eafa95249f242d20798f7c113312b1b93c27409",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 279,
+      "matchedMetadataTextCount": 269
+    },
+    {
+      "name": "spotify-player",
+      "title": "Spotify Player",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/spotify-player/package.json",
+      "sha": "e568002b87b2b31ff88ac242ee39314a4d4b5490",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 108,
+      "matchedMetadataTextCount": 108
+    },
+    {
+      "name": "visual-studio-code",
+      "title": "Visual Studio Code",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/visual-studio-code-recent-projects/package.json",
+      "sha": "8bf8ad58526bdebdeca3d383edd23c225593b30b",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 47,
+      "matchedMetadataTextCount": 31
+    },
+    {
+      "name": "linear",
+      "title": "Linear",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/linear/package.json",
+      "sha": "5382b2a436c4eb049b043f32b38351a973ded1c3",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 61,
+      "matchedMetadataTextCount": 60
+    },
+    {
+      "name": "slack",
+      "title": "Slack",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/slack/package.json",
+      "sha": "eca6758b1a6dad2a86a5271823164e11431a5806",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 36,
+      "matchedMetadataTextCount": 33
+    },
+    {
+      "name": "notion",
+      "title": "Notion",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/notion/package.json",
+      "sha": "974a73943243abe10a39d6b98c2404412c6c1135",
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "windows": true,
+      "metadataTextCount": 39,
+      "matchedMetadataTextCount": 38
+    },
+    {
+      "name": "chatgpt",
+      "title": "ChatGPT",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/chatgpt/package.json",
+      "sha": "a83f68bd8672f2fe4621d2a614c2d90292f70886",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 74,
+      "matchedMetadataTextCount": 68
+    },
+    {
+      "name": "1password",
+      "title": "1Password",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/1password/package.json",
+      "sha": "b3d01d4f430cd96514257c8e84376ee41c61f5be",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 34,
+      "matchedMetadataTextCount": 32
+    },
+    {
+      "name": "github",
+      "title": "GitHub",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/github/package.json",
+      "sha": "8f8c9ca3b2b98b6950b4106b9e15cb85a4f27067",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 141,
+      "matchedMetadataTextCount": 132
+    },
+    {
+      "name": "speedtest",
+      "title": "Speedtest",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/speedtest/package.json",
+      "sha": "d8df361b053f0043e0adc8014a34ca891e304476",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 2,
+      "matchedMetadataTextCount": 2
+    },
+    {
+      "name": "obsidian",
+      "title": "Obsidian",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/obsidian/package.json",
+      "sha": "54449a33b1c6929cd23fa8bed30c5d9c5b579739",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 114,
+      "matchedMetadataTextCount": 106
+    },
+    {
+      "name": "google-search",
+      "title": "Google Search",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/google-search/package.json",
+      "sha": "a57c0de02f29ee3ef486ce2649bd1dd6c7490d44",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 8,
+      "matchedMetadataTextCount": 8
+    },
+    {
+      "name": "coffee",
+      "title": "Coffee",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/coffee/package.json",
+      "sha": "7faf77570c23d84c143f421ceba1389c54ffd64c",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 42,
+      "matchedMetadataTextCount": 42
+    },
+    {
+      "name": "video-downloader",
+      "title": "Video Downloader",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/video-downloader/package.json",
+      "sha": "4e45b6b2c5d4dd117aa64bc32bd76e0fe5e565c0",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 34,
+      "matchedMetadataTextCount": 27
+    },
+    {
+      "name": "zoom",
+      "title": "Zoom",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/zoom/package.json",
+      "sha": "95078d8675745944f6c876e622ca2a9d14732dfb",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 14,
+      "matchedMetadataTextCount": 13
+    },
+    {
+      "name": "warp",
+      "title": "Warp",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/warp/package.json",
+      "sha": "68f351b49e0276546e700e6e8e97bf2a45c2966e",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 14,
+      "matchedMetadataTextCount": 12
+    },
+    {
+      "name": "youtube",
+      "title": "YouTube",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/youtube/package.json",
+      "sha": "30b9975a4c0173da3d8bb5ae77d2f791189e3f34",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 30,
+      "matchedMetadataTextCount": 30
+    },
+    {
+      "name": "lorem-ipsum",
+      "title": "Lorem Ipsum",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/lorem-ipsum/package.json",
+      "sha": "3e75a532120ef84db976fa6c191486635533e65e",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 17,
+      "matchedMetadataTextCount": 17
+    },
+    {
+      "name": "gif-search",
+      "title": "GIF Search",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/gif-search/package.json",
+      "sha": "2c29f9e0f667c3ec947c76167d022cecad280ebd",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 71,
+      "matchedMetadataTextCount": 71
+    },
+    {
+      "name": "json-format",
+      "title": "Format JSON",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/json-format/package.json",
+      "sha": "cadf838088ac47e8564bcb40044f1102fca8ab97",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 23,
+      "matchedMetadataTextCount": 14
+    },
+    {
+      "name": "todoist",
+      "title": "Todoist",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/todoist/package.json",
+      "sha": "3f12931fed1ef0eb8e3cd9feefbea62e8d3496d0",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 58,
+      "matchedMetadataTextCount": 31
+    },
+    {
+      "name": "remove-paywall",
+      "title": "Remove Paywall",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/remove-paywall/package.json",
+      "sha": "38dff46b0ef94044aab5a9317165a0685994cbba",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 15,
+      "matchedMetadataTextCount": 4
+    },
+    {
+      "name": "raycast-gemini",
+      "title": "Google Gemini",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/raycast-gemini/package.json",
+      "sha": "0519c9137f05cbff0be5c0bf9fecb857cb984ebe",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 50,
+      "matchedMetadataTextCount": 28
+    },
+    {
+      "name": "downloads-manager",
+      "title": "Downloads Manager",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/downloads-manager/package.json",
+      "sha": "0f2040bccf0951f05fce6ccc0a4c4c3b8270a5f2",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 42,
+      "matchedMetadataTextCount": 26
+    },
+    {
+      "name": "tailwindcss",
+      "title": "Tailwind CSS",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/tailwindcss/package.json",
+      "sha": "19030bd62c438257ccb95cf4d03b915de9dfcdaa",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 28,
+      "matchedMetadataTextCount": 21
+    },
+    {
+      "name": "clean-keyboard",
+      "title": "Clean Keyboard",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/clean-keyboard/package.json",
+      "sha": "eb4e6ed42092404fbcfd2033f798ed8b1a2f4fae",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 5,
+      "matchedMetadataTextCount": 3
+    },
+    {
+      "name": "shell",
+      "title": "Shell",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/shell/package.json",
+      "sha": "d91dffe3069466e1baee1211f04ddf9ecb221458",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 16,
+      "matchedMetadataTextCount": 7
+    },
+    {
+      "name": "audio-device",
+      "title": "Set Audio Device",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/audio-device/package.json",
+      "sha": "1498a30ec09ec5fdd7087c5d0e966d4895840737",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 37,
+      "matchedMetadataTextCount": 19
+    },
+    {
+      "name": "google-calendar",
+      "title": "Google Calendar",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/google-calendar/package.json",
+      "sha": "38da6836c97e64b7ab691fd412cb49a53f3bafc6",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 31,
+      "matchedMetadataTextCount": 21
+    },
+    {
+      "name": "perplexity",
+      "title": "Perplexity",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/perplexity/package.json",
+      "sha": "864527acd131c50cccf828555b19ddaed9ee96a1",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 6,
+      "matchedMetadataTextCount": 2
+    },
+    {
+      "name": "jira",
+      "title": "Jira",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/jira/package.json",
+      "sha": "7bce7445cdf4987221d0b26ab951e75b3366e274",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 45,
+      "matchedMetadataTextCount": 26
+    },
+    {
+      "name": "browser-bookmarks",
+      "title": "Browser Bookmarks",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/browser-bookmarks/package.json",
+      "sha": "e3fcc3508fc7353be39493fe5365b3b12ffa5d41",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 6,
+      "matchedMetadataTextCount": 3
+    },
+    {
+      "name": "bitwarden",
+      "title": "Bitwarden Vault",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/bitwarden/package.json",
+      "sha": "a6e60ae8d57b95318831d0aabff355388a29aeaa",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 80,
+      "matchedMetadataTextCount": 48
+    },
+    {
+      "name": "deepcast",
+      "title": "Deepcast",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/deepcast/package.json",
+      "sha": "d6738dea8f2662166db7ea5638346bbf36007115",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 129,
+      "matchedMetadataTextCount": 86
+    },
+    {
+      "name": "port-manager",
+      "title": "Port Manager",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/port-manager/package.json",
+      "sha": "e11570bf6f9bf7d10ed53112922fe1a2a214f4a0",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 24,
+      "matchedMetadataTextCount": 19
+    },
+    {
+      "name": "google-workspace",
+      "title": "Google Workspace",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/google-workspace/package.json",
+      "sha": "b48c0f22f58b1a0151c030624e6cdd2e2bf62462",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 26,
+      "matchedMetadataTextCount": 11
+    },
+    {
+      "name": "toothpick",
+      "title": "Toothpick",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/toothpick/package.json",
+      "sha": "b780d5dc9b93c659af5d87d369aff47de769f50d",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 58,
+      "matchedMetadataTextCount": 26
+    },
+    {
+      "name": "change-case",
+      "title": "Change Case",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/change-case/package.json",
+      "sha": "55ac8a7bd3cf38c94e08c8aff4736bef63738d95",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 112,
+      "matchedMetadataTextCount": 58
+    },
+    {
+      "name": "whatsapp",
+      "title": "WhatsApp",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/whatsapp/package.json",
+      "sha": "6e001e53e9fa5481db5e50a012f8d1021225a1e5",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 11,
+      "matchedMetadataTextCount": 5
+    },
+    {
+      "name": "ray-so",
+      "title": "ray.so",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/ray-so/package.json",
+      "sha": "7adf49171847b2e4a02a4b628149ddafcd0c838d",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 47,
+      "matchedMetadataTextCount": 8
+    },
+    {
+      "name": "docker",
+      "title": "Docker",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/docker/package.json",
+      "sha": "cac780ddf2b96491e6e7a2dbcb1c6068a28a1ae4",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 11,
+      "matchedMetadataTextCount": 5
+    },
+    {
+      "name": "google-maps-search",
+      "title": "Google Maps Search",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/google-maps-search/package.json",
+      "sha": "9830f5b7f2e0d1e0e8c766cb6f0a5bd142fa97cb",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 29,
+      "matchedMetadataTextCount": 18
+    },
+    {
+      "name": "myip",
+      "title": "MyIP",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/myip/package.json",
+      "sha": "3973497bf7d1abaeef0ac46b498d936d41ba6ebc",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 4,
+      "matchedMetadataTextCount": 2
+    },
+    {
+      "name": "installed-extensions",
+      "title": "Installed Extensions",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/installed-extensions/package.json",
+      "sha": "c5a8851fcdbbaa39dc28398eace1fefeb4be89ff",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 15,
+      "matchedMetadataTextCount": 10
+    },
+    {
+      "name": "figma-files-raycast-extension",
+      "title": "Figma File Search",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/figma-files/package.json",
+      "sha": "374ca66bb5af509c777135f0dea3814bff3024be",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 10,
+      "matchedMetadataTextCount": 5
+    },
+    {
+      "name": "wikipedia",
+      "title": "Wikipedia",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/wikipedia/package.json",
+      "sha": "3c8ee295906f9db6e8462f18c5dc4df7e8791880",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 17,
+      "matchedMetadataTextCount": 10
+    },
+    {
+      "name": "raycast-explorer",
+      "title": "Raycast Explorer",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/raycast-explorer/package.json",
+      "sha": "4c7de58b1ab6d7f4ce7675a6a3ad7783498f4f68",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 27,
+      "matchedMetadataTextCount": 7
+    },
+    {
+      "name": "tinypng",
+      "title": "TinyPNG",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/tinypng/package.json",
+      "sha": "56d41417386e5494e6ff767b4274210729209d84",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 31,
+      "matchedMetadataTextCount": 31
+    },
+    {
+      "name": "weather",
+      "title": "Weather",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/weather/package.json",
+      "sha": "3a42699ccfffd2bc76f131e7545da803174874c6",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 20,
+      "matchedMetadataTextCount": 15
+    },
+    {
+      "name": "cheatsheets",
+      "title": "Cheatsheets",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/cheatsheets/package.json",
+      "sha": "5f4b2024b7a43854d323d24de400b5bebf0a97d9",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 2,
+      "matchedMetadataTextCount": 1
+    },
+    {
+      "name": "ruler",
+      "title": "Ruler",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/ruler/package.json",
+      "sha": "80e4779b561539efce5732e98fd61ec8f965777e",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 7,
+      "matchedMetadataTextCount": 5
+    },
+    {
+      "name": "svgl",
+      "title": "Svgl",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/svgl/package.json",
+      "sha": "708f1afb624f37a742ad2ebb642e0d49bd44c658",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 30,
+      "matchedMetadataTextCount": 20
+    },
+    {
+      "name": "password-generator",
+      "title": "Password Generator",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/password-generator/package.json",
+      "sha": "28655ec7de247f4eaa83e06713e5a02154a2afb6",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 21,
+      "matchedMetadataTextCount": 11
+    },
+    {
+      "name": "raycast-ollama",
+      "title": "Ollama AI",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/raycast-ollama/package.json",
+      "sha": "3bca9a8e2f28a9d5ec69484eb0009663ce7cdea4",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 640,
+      "matchedMetadataTextCount": 615
+    },
+    {
+      "name": "word-count",
+      "title": "Word Count",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/word-count/package.json",
+      "sha": "a74ca596829f425330bbad54f60d0c5c03c6daff",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 6,
+      "matchedMetadataTextCount": 3
+    },
+    {
+      "name": "base64",
+      "title": "Base64",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/base64/package.json",
+      "sha": "c1db879bb4f884bb535fbc607bf73a2edde3a25d",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 11,
+      "matchedMetadataTextCount": 6
+    },
+    {
+      "name": "raindrop-io",
+      "title": "Raindrop.io",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/raindrop-io/package.json",
+      "sha": "f80d2f85699adf526c96411293ad8e1315754f05",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 52,
+      "matchedMetadataTextCount": 33
+    },
+    {
+      "name": "gmail",
+      "title": "Gmail",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/gmail/package.json",
+      "sha": "151c12fd71a7e41c015dc61ea378275d32e790e0",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 23,
+      "matchedMetadataTextCount": 14
+    },
+    {
+      "name": "easydict",
+      "title": "Easy Dictionary",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/easydict/package.json",
+      "sha": "196d23eea4835fe02cc564fe60bb34ffdcf6f9bd",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 150,
+      "matchedMetadataTextCount": 103
+    },
+    {
+      "name": "unsplash",
+      "title": "Unsplash",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/unsplash/package.json",
+      "sha": "d7f8bdbb0626c336760253011187bd2161c2dd12",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 73,
+      "matchedMetadataTextCount": 58
+    },
+    {
+      "name": "qrcode-generator",
+      "title": "QR Code Generator",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/qrcode-generator/package.json",
+      "sha": "6df207c5b7a67098a24929b814b58c2a758779b9",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 17,
+      "matchedMetadataTextCount": 9
+    },
+    {
+      "name": "random",
+      "title": "Random Data Generator",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/random-data-generator/package.json",
+      "sha": "52b1834cfda3c255788ac858df27467ff755473b",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 8,
+      "matchedMetadataTextCount": 5
+    },
+    {
+      "name": "uuid-generator",
+      "title": "UUID Generator",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/uuid-generator/package.json",
+      "sha": "f729e2dbc2c4b0ace69719aed1c55add24833b62",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 37,
+      "matchedMetadataTextCount": 32
+    },
+    {
+      "name": "unix-timestamp",
+      "title": "Unix Timestamp",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/unix-timestamp/package.json",
+      "sha": "005e34cb4d05e4999825042b1525dcfc43ad714e",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 13,
+      "matchedMetadataTextCount": 8
+    },
+    {
+      "name": "google-fonts",
+      "title": "Google Fonts",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/google-fonts/package.json",
+      "sha": "16c54a2a487e73270b6bb0e7c2bb45b9111b52e7",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 2,
+      "matchedMetadataTextCount": 2
+    },
+    {
+      "name": "homeassistant",
+      "title": "Home Assistant",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/homeassistant/package.json",
+      "sha": "af12aeda7bea45df526f10ba9065d49ce4c8ad0a",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 160,
+      "matchedMetadataTextCount": 74
+    },
+    {
+      "name": "iconify",
+      "title": "Iconify — Search Icons",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/iconify/package.json",
+      "sha": "dcb34b812bc5bffa61bfa77d565b47f21aae1988",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 35,
+      "matchedMetadataTextCount": 16
+    },
+    {
+      "name": "git-repos",
+      "title": "Git Repos",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/git-repos/package.json",
+      "sha": "c1fce345dd184b80add4fccaeb15d23f64e65823",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 28,
+      "matchedMetadataTextCount": 16
+    },
+    {
+      "name": "curl",
+      "title": "cURL",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/curl/package.json",
+      "sha": "2fdb73d91ad708aa32aa319317fa02864775ef06",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 4,
+      "matchedMetadataTextCount": 2
+    },
+    {
+      "name": "media-converter",
+      "title": "Media Converter",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/media-converter/package.json",
+      "sha": "e53cfc0d2e01b1d76fba0a512c2612cfb526f677",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 111,
+      "matchedMetadataTextCount": 37
+    },
+    {
+      "name": "word-search",
+      "title": "Word Search",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/word-search/package.json",
+      "sha": "51703a99bf8c3555c219178c6c151c031dfb88e7",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 34,
+      "matchedMetadataTextCount": 21
+    },
+    {
+      "name": "ip-geolocation",
+      "title": "IP Geolocation",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/ip-geolocation/package.json",
+      "sha": "1095f16c1607c3c2edac6bb5da199e67d6ecae62",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 27,
+      "matchedMetadataTextCount": 11
+    },
+    {
+      "name": "paste-as-plain-text",
+      "title": "Paste as Plain Text",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/paste-as-plain-text/package.json",
+      "sha": "ada24bf36742deac9bc8f3c702e88357c1721f04",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 25,
+      "matchedMetadataTextCount": 15
+    },
+    {
+      "name": "reddit-search",
+      "title": "Reddit Search",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/reddit-search/package.json",
+      "sha": "09d80d23be56238087384c6c6df26f03220f92a5",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 13,
+      "matchedMetadataTextCount": 7
+    },
+    {
+      "name": "calendar",
+      "title": "Quick Calendar",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/calendar/package.json",
+      "sha": "35967b02855a320511c1aecef9efadede5fba703",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 11,
+      "matchedMetadataTextCount": 9
+    },
+    {
+      "name": "search-npm",
+      "title": "Search npm Packages",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/search-npm/package.json",
+      "sha": "934c98f5f54f8ad5e9ba6ce0daa3b41bcec70785",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 31,
+      "matchedMetadataTextCount": 15
+    },
+    {
+      "name": "raycast-wallpaper",
+      "title": "Raycast Wallpaper",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/raycast-wallpaper/package.json",
+      "sha": "cb104a2b1df627645a82d447f95d43fafdddd1ef",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 41,
+      "matchedMetadataTextCount": 24
+    },
+    {
+      "name": "zen-browser",
+      "title": "Zen Browser",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/zen-browser/package.json",
+      "sha": "6181297bcdae2d7b75060c58f946aecf7433bd44",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 31,
+      "matchedMetadataTextCount": 14
+    },
+    {
+      "name": "hacker-news",
+      "title": "Hacker News",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/hacker-news/package.json",
+      "sha": "72bf9fe69159991af8245f6514ef432f6f34c7c1",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 4,
+      "matchedMetadataTextCount": 1
+    },
+    {
+      "name": "vim-bro",
+      "title": "Vim Bro - Search Vim Commands",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/vim-bro/package.json",
+      "sha": "82d2cb5a06d4fdb5a596e8c59336e7d861004213",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 2,
+      "matchedMetadataTextCount": 1
+    },
+    {
+      "name": "gitlab",
+      "title": "GitLab",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/gitlab/package.json",
+      "sha": "c8523f2283e678711e75e4d8176ccecc85f97ad7",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 115,
+      "matchedMetadataTextCount": 57
+    },
+    {
+      "name": "diff-checker",
+      "title": "Diff Checker",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/diff-checker/package.json",
+      "sha": "a4c3d1d1e444c6e34ca8985e24b5c54ca21d1db6",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 4,
+      "matchedMetadataTextCount": 2
+    },
+    {
+      "name": "http-status-codes",
+      "title": "HTTP Status Codes",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/http-status-codes/package.json",
+      "sha": "383fa66506755945eebf219336b42788af3f61eb",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 7,
+      "matchedMetadataTextCount": 5
+    },
+    {
+      "name": "microsoft-teams",
+      "title": "Microsoft Teams",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/microsoft-teams/package.json",
+      "sha": "aa350c1bf4bf1f922518f8ea09b6f24e14c35031",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 16,
+      "matchedMetadataTextCount": 9
+    },
+    {
+      "name": "unicode-symbols",
+      "title": "Unicode Symbols Search",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/unicode-symbols/package.json",
+      "sha": "b0449f2c7a33586a68a4f70a165fb35a0c33c08b",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 21,
+      "matchedMetadataTextCount": 15
+    },
+    {
+      "name": "currency-exchange",
+      "title": "Currency Exchange",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/currency-exchange/package.json",
+      "sha": "75ef8ea7ae0d6066cbac15582ee83ee0fd329ba7",
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "windows": true,
+      "metadataTextCount": 9,
+      "matchedMetadataTextCount": 3
+    },
+    {
+      "name": "search-mdn",
+      "title": "Search MDN",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/search-mdn/package.json",
+      "sha": "9626c994c81a43ce0002f70e90c3051abefe566d",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 17,
+      "matchedMetadataTextCount": 6
+    },
+    {
+      "name": "apple-maps-search",
+      "title": "Apple Maps Search",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/apple-maps-search/package.json",
+      "sha": "44010da99f8cb0e769d67865a47b31962954972f",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 16,
+      "matchedMetadataTextCount": 9
+    },
+    {
+      "name": "todo-list",
+      "title": "Todo List",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/todo-list/package.json",
+      "sha": "2737e933e958157ea0acae2b0a8d8e0f27646c5e",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 24,
+      "matchedMetadataTextCount": 19
+    },
+    {
+      "name": "jwt-decoder",
+      "title": "JWT Decoder",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/jwt-decoder/package.json",
+      "sha": "7b1d6972165c3ebc7d711e9e8d924c8df7b267ce",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 6,
+      "matchedMetadataTextCount": 3
+    },
+    {
+      "name": "summarize-youtube-video-with-ai",
+      "title": "Summarize YouTube Videos with AI",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/summarize-youtube-video-with-ai/package.json",
+      "sha": "925637b34ebf4b9a82421725de0f38730d6d2cd6",
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "windows": true,
+      "metadataTextCount": 35,
+      "matchedMetadataTextCount": 19
+    },
+    {
+      "name": "zed-recent-projects",
+      "title": "Zed",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/zed-recent-projects/package.json",
+      "sha": "0d936edef06052991a0a409304d75aa193f0d616",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 20,
+      "matchedMetadataTextCount": 10
+    },
+    {
+      "name": "meme-generator",
+      "title": "Meme Generator",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/meme-generator/package.json",
+      "sha": "84a177141d4e423cab9fd4b07f3ccc26ba6bea10",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 8,
+      "matchedMetadataTextCount": 3
+    },
+    {
+      "name": "confluence",
+      "title": "Confluence",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/confluence-search/package.json",
+      "sha": "d6bb86f060f8b8329b3a23506a4bc5d9e6c89b61",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 28,
+      "matchedMetadataTextCount": 15
+    },
+    {
+      "name": "flush-dns",
+      "title": "Flush DNS",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/flush-dns/package.json",
+      "sha": "2b7e8109c381cbbcfe879a48515af341f1e4d6e3",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 2,
+      "matchedMetadataTextCount": 1
+    },
+    {
+      "name": "imdb",
+      "title": "IMDb Search",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/imdb/package.json",
+      "sha": "8cad9be7af2278a290ed4f9440377921f66ddd85",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 20,
+      "matchedMetadataTextCount": 10
+    },
+    {
+      "name": "reclaim-ai",
+      "title": "Reclaim",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/reclaim-ai/package.json",
+      "sha": "f01922e839745a49e7104fe992199dd2568d79d6",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 24,
+      "matchedMetadataTextCount": 11
+    },
+    {
+      "name": "toggl-track",
+      "title": "Toggl Track",
+      "source": "https://github.com/raycast/extensions/blob/main/extensions/toggl-track/package.json",
+      "sha": "dcd4c3f4541a5ff3c5e96c3cee30a7bb1a756cef",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "windows": true,
+      "metadataTextCount": 61,
+      "matchedMetadataTextCount": 33
+    }
+  ]
+}

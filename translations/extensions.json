@@ -1,0 +1,402 @@
+[
+  {
+    "name": "kill-process",
+    "title": "Kill Process"
+  },
+  {
+    "name": "color-picker",
+    "title": "Color Picker"
+  },
+  {
+    "name": "translate",
+    "title": "Google Translate"
+  },
+  {
+    "name": "spotify-player",
+    "title": "Spotify Player"
+  },
+  {
+    "name": "visual-studio-code",
+    "title": "Visual Studio Code"
+  },
+  {
+    "name": "linear",
+    "title": "Linear"
+  },
+  {
+    "name": "slack",
+    "title": "Slack"
+  },
+  {
+    "name": "notion",
+    "title": "Notion"
+  },
+  {
+    "name": "chatgpt",
+    "title": "ChatGPT"
+  },
+  {
+    "name": "1password",
+    "title": "1Password"
+  },
+  {
+    "name": "github",
+    "title": "GitHub"
+  },
+  {
+    "name": "speedtest",
+    "title": "Speedtest"
+  },
+  {
+    "name": "obsidian",
+    "title": "Obsidian"
+  },
+  {
+    "name": "google-search",
+    "title": "Google Search"
+  },
+  {
+    "name": "coffee",
+    "title": "Coffee"
+  },
+  {
+    "name": "video-downloader",
+    "title": "Video Downloader"
+  },
+  {
+    "name": "zoom",
+    "title": "Zoom"
+  },
+  {
+    "name": "warp",
+    "title": "Warp"
+  },
+  {
+    "name": "youtube",
+    "title": "YouTube"
+  },
+  {
+    "name": "lorem-ipsum",
+    "title": "Lorem Ipsum"
+  },
+  {
+    "name": "gif-search",
+    "title": "GIF Search"
+  },
+  {
+    "name": "json-format",
+    "title": "Format JSON"
+  },
+  {
+    "name": "todoist",
+    "title": "Todoist"
+  },
+  {
+    "name": "remove-paywall",
+    "title": "Remove Paywall"
+  },
+  {
+    "name": "raycast-gemini",
+    "title": "Google Gemini"
+  },
+  {
+    "name": "downloads-manager",
+    "title": "Downloads Manager"
+  },
+  {
+    "name": "tailwindcss",
+    "title": "Tailwind CSS"
+  },
+  {
+    "name": "clean-keyboard",
+    "title": "Clean Keyboard"
+  },
+  {
+    "name": "shell",
+    "title": "Shell"
+  },
+  {
+    "name": "audio-device",
+    "title": "Set Audio Device"
+  },
+  {
+    "name": "google-calendar",
+    "title": "Google Calendar"
+  },
+  {
+    "name": "perplexity",
+    "title": "Perplexity"
+  },
+  {
+    "name": "jira",
+    "title": "Jira"
+  },
+  {
+    "name": "browser-bookmarks",
+    "title": "Browser Bookmarks"
+  },
+  {
+    "name": "bitwarden",
+    "title": "Bitwarden Vault"
+  },
+  {
+    "name": "deepcast",
+    "title": "Deepcast"
+  },
+  {
+    "name": "port-manager",
+    "title": "Port Manager"
+  },
+  {
+    "name": "google-workspace",
+    "title": "Google Workspace"
+  },
+  {
+    "name": "toothpick",
+    "title": "Toothpick"
+  },
+  {
+    "name": "change-case",
+    "title": "Change Case"
+  },
+  {
+    "name": "whatsapp",
+    "title": "WhatsApp"
+  },
+  {
+    "name": "ray-so",
+    "title": "ray.so"
+  },
+  {
+    "name": "docker",
+    "title": "Docker"
+  },
+  {
+    "name": "google-maps-search",
+    "title": "Google Maps Search"
+  },
+  {
+    "name": "myip",
+    "title": "MyIP"
+  },
+  {
+    "name": "installed-extensions",
+    "title": "Installed Extensions"
+  },
+  {
+    "name": "figma-files-raycast-extension",
+    "title": "Figma File Search"
+  },
+  {
+    "name": "wikipedia",
+    "title": "Wikipedia"
+  },
+  {
+    "name": "raycast-explorer",
+    "title": "Raycast Explorer"
+  },
+  {
+    "name": "tinypng",
+    "title": "TinyPNG"
+  },
+  {
+    "name": "weather",
+    "title": "Weather"
+  },
+  {
+    "name": "cheatsheets",
+    "title": "Cheatsheets"
+  },
+  {
+    "name": "ruler",
+    "title": "Ruler"
+  },
+  {
+    "name": "svgl",
+    "title": "Svgl"
+  },
+  {
+    "name": "password-generator",
+    "title": "Password Generator"
+  },
+  {
+    "name": "raycast-ollama",
+    "title": "Ollama AI"
+  },
+  {
+    "name": "word-count",
+    "title": "Word Count"
+  },
+  {
+    "name": "base64",
+    "title": "Base64"
+  },
+  {
+    "name": "raindrop-io",
+    "title": "Raindrop.io"
+  },
+  {
+    "name": "gmail",
+    "title": "Gmail"
+  },
+  {
+    "name": "easydict",
+    "title": "Easy Dictionary"
+  },
+  {
+    "name": "unsplash",
+    "title": "Unsplash"
+  },
+  {
+    "name": "qrcode-generator",
+    "title": "QR Code Generator"
+  },
+  {
+    "name": "random",
+    "title": "Random Data Generator"
+  },
+  {
+    "name": "uuid-generator",
+    "title": "UUID Generator"
+  },
+  {
+    "name": "unix-timestamp",
+    "title": "Unix Timestamp"
+  },
+  {
+    "name": "google-fonts",
+    "title": "Google Fonts"
+  },
+  {
+    "name": "homeassistant",
+    "title": "Home Assistant"
+  },
+  {
+    "name": "iconify",
+    "title": "Iconify — Search Icons"
+  },
+  {
+    "name": "git-repos",
+    "title": "Git Repos"
+  },
+  {
+    "name": "curl",
+    "title": "cURL"
+  },
+  {
+    "name": "media-converter",
+    "title": "Media Converter"
+  },
+  {
+    "name": "word-search",
+    "title": "Word Search"
+  },
+  {
+    "name": "ip-geolocation",
+    "title": "IP Geolocation"
+  },
+  {
+    "name": "paste-as-plain-text",
+    "title": "Paste as Plain Text"
+  },
+  {
+    "name": "reddit-search",
+    "title": "Reddit Search"
+  },
+  {
+    "name": "calendar",
+    "title": "Quick Calendar"
+  },
+  {
+    "name": "search-npm",
+    "title": "Search npm Packages"
+  },
+  {
+    "name": "raycast-wallpaper",
+    "title": "Raycast Wallpaper"
+  },
+  {
+    "name": "zen-browser",
+    "title": "Zen Browser"
+  },
+  {
+    "name": "hacker-news",
+    "title": "Hacker News"
+  },
+  {
+    "name": "vim-bro",
+    "title": "Vim Bro - Search Vim Commands"
+  },
+  {
+    "name": "gitlab",
+    "title": "GitLab"
+  },
+  {
+    "name": "diff-checker",
+    "title": "Diff Checker"
+  },
+  {
+    "name": "http-status-codes",
+    "title": "HTTP Status Codes"
+  },
+  {
+    "name": "microsoft-teams",
+    "title": "Microsoft Teams"
+  },
+  {
+    "name": "unicode-symbols",
+    "title": "Unicode Symbols Search"
+  },
+  {
+    "name": "currency-exchange",
+    "title": "Currency Exchange"
+  },
+  {
+    "name": "search-mdn",
+    "title": "Search MDN"
+  },
+  {
+    "name": "apple-maps-search",
+    "title": "Apple Maps Search"
+  },
+  {
+    "name": "todo-list",
+    "title": "Todo List"
+  },
+  {
+    "name": "jwt-decoder",
+    "title": "JWT Decoder"
+  },
+  {
+    "name": "summarize-youtube-video-with-ai",
+    "title": "Summarize YouTube Videos with AI"
+  },
+  {
+    "name": "zed-recent-projects",
+    "title": "Zed"
+  },
+  {
+    "name": "meme-generator",
+    "title": "Meme Generator"
+  },
+  {
+    "name": "confluence",
+    "title": "Confluence"
+  },
+  {
+    "name": "flush-dns",
+    "title": "Flush DNS"
+  },
+  {
+    "name": "imdb",
+    "title": "IMDb Search"
+  },
+  {
+    "name": "reclaim-ai",
+    "title": "Reclaim"
+  },
+  {
+    "name": "toggl-track",
+    "title": "Toggl Track"
+  }
+]

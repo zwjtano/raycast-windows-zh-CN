@@ -1,0 +1,706 @@
+{
+  "checkedAt": "2026-09-18T02:59:43.524030+00:00",
+  "source": "https://www.raycast.com/store/popular?platform=Windows#list",
+  "extensions": [
+    {
+      "rank": 1,
+      "page": 1,
+      "name": "kill-process",
+      "title": "Kill Process",
+      "store": "https://www.raycast.com/rolandleth/kill-process"
+    },
+    {
+      "rank": 2,
+      "page": 1,
+      "name": "color-picker",
+      "title": "Color Picker",
+      "store": "https://www.raycast.com/thomas/color-picker"
+    },
+    {
+      "rank": 3,
+      "page": 1,
+      "name": "translate",
+      "title": "Google Translate",
+      "store": "https://www.raycast.com/gebeto/translate"
+    },
+    {
+      "rank": 4,
+      "page": 1,
+      "name": "spotify-player",
+      "title": "Spotify Player",
+      "store": "https://www.raycast.com/mattisssa/spotify-player"
+    },
+    {
+      "rank": 5,
+      "page": 1,
+      "name": "visual-studio-code",
+      "title": "Visual Studio Code",
+      "store": "https://www.raycast.com/thomas/visual-studio-code"
+    },
+    {
+      "rank": 6,
+      "page": 1,
+      "name": "linear",
+      "title": "Linear",
+      "store": "https://www.raycast.com/linear/linear"
+    },
+    {
+      "rank": 7,
+      "page": 1,
+      "name": "slack",
+      "title": "Slack",
+      "store": "https://www.raycast.com/mommertf/slack"
+    },
+    {
+      "rank": 8,
+      "page": 1,
+      "name": "notion",
+      "title": "Notion",
+      "store": "https://www.raycast.com/notion/notion"
+    },
+    {
+      "rank": 9,
+      "page": 1,
+      "name": "chatgpt",
+      "title": "ChatGPT",
+      "store": "https://www.raycast.com/abielzulio/chatgpt"
+    },
+    {
+      "rank": 10,
+      "page": 1,
+      "name": "1password",
+      "title": "1Password",
+      "store": "https://www.raycast.com/khasbilegt/1password"
+    },
+    {
+      "rank": 11,
+      "page": 2,
+      "name": "github",
+      "title": "GitHub",
+      "store": "https://www.raycast.com/raycast/github"
+    },
+    {
+      "rank": 12,
+      "page": 2,
+      "name": "speedtest",
+      "title": "Speedtest",
+      "store": "https://www.raycast.com/tonka3000/speedtest"
+    },
+    {
+      "rank": 13,
+      "page": 2,
+      "name": "obsidian",
+      "title": "Obsidian",
+      "store": "https://www.raycast.com/marcjulian/obsidian"
+    },
+    {
+      "rank": 14,
+      "page": 2,
+      "name": "google-search",
+      "title": "Google Search",
+      "store": "https://www.raycast.com/mblode/google-search"
+    },
+    {
+      "rank": 15,
+      "page": 2,
+      "name": "coffee",
+      "title": "Coffee",
+      "store": "https://www.raycast.com/mooxl/coffee"
+    },
+    {
+      "rank": 16,
+      "page": 2,
+      "name": "video-downloader",
+      "title": "Video Downloader",
+      "store": "https://www.raycast.com/vimtor/video-downloader"
+    },
+    {
+      "rank": 17,
+      "page": 2,
+      "name": "zoom",
+      "title": "Zoom",
+      "store": "https://www.raycast.com/raycast/zoom"
+    },
+    {
+      "rank": 18,
+      "page": 2,
+      "name": "warp",
+      "title": "Warp",
+      "store": "https://www.raycast.com/warpdotdev/warp"
+    },
+    {
+      "rank": 19,
+      "page": 2,
+      "name": "youtube",
+      "title": "YouTube",
+      "store": "https://www.raycast.com/tonka3000/youtube"
+    },
+    {
+      "rank": 20,
+      "page": 2,
+      "name": "lorem-ipsum",
+      "title": "Lorem Ipsum",
+      "store": "https://www.raycast.com/AntonNiklasson/lorem-ipsum"
+    },
+    {
+      "rank": 21,
+      "page": 3,
+      "name": "gif-search",
+      "title": "GIF Search",
+      "store": "https://www.raycast.com/josephschmitt/gif-search"
+    },
+    {
+      "rank": 22,
+      "page": 3,
+      "name": "json-format",
+      "title": "Format JSON",
+      "store": "https://www.raycast.com/destiner/json-format"
+    },
+    {
+      "rank": 23,
+      "page": 3,
+      "name": "todoist",
+      "title": "Todoist",
+      "store": "https://www.raycast.com/doist/todoist"
+    },
+    {
+      "rank": 24,
+      "page": 3,
+      "name": "remove-paywall",
+      "title": "Remove Paywall",
+      "store": "https://www.raycast.com/tegola/remove-paywall"
+    },
+    {
+      "rank": 25,
+      "page": 3,
+      "name": "raycast-gemini",
+      "title": "Google Gemini",
+      "store": "https://www.raycast.com/EvanZhouDev/raycast-gemini"
+    },
+    {
+      "rank": 26,
+      "page": 3,
+      "name": "downloads-manager",
+      "title": "Downloads Manager",
+      "store": "https://www.raycast.com/thomas/downloads-manager"
+    },
+    {
+      "rank": 27,
+      "page": 3,
+      "name": "tailwindcss",
+      "title": "Tailwind CSS",
+      "store": "https://www.raycast.com/vimtor/tailwindcss"
+    },
+    {
+      "rank": 28,
+      "page": 3,
+      "name": "clean-keyboard",
+      "title": "Clean Keyboard",
+      "store": "https://www.raycast.com/ike-gg/clean-keyboard"
+    },
+    {
+      "rank": 29,
+      "page": 3,
+      "name": "shell",
+      "title": "Shell",
+      "store": "https://www.raycast.com/asubbotin/shell"
+    },
+    {
+      "rank": 30,
+      "page": 3,
+      "name": "audio-device",
+      "title": "Set Audio Device",
+      "store": "https://www.raycast.com/benvp/audio-device"
+    },
+    {
+      "rank": 31,
+      "page": 4,
+      "name": "google-calendar",
+      "title": "Google Calendar",
+      "store": "https://www.raycast.com/thomas/google-calendar"
+    },
+    {
+      "rank": 32,
+      "page": 4,
+      "name": "perplexity",
+      "title": "Perplexity",
+      "store": "https://www.raycast.com/third774/perplexity"
+    },
+    {
+      "rank": 33,
+      "page": 4,
+      "name": "jira",
+      "title": "Jira",
+      "store": "https://www.raycast.com/raycast/jira"
+    },
+    {
+      "rank": 34,
+      "page": 4,
+      "name": "browser-bookmarks",
+      "title": "Browser Bookmarks",
+      "store": "https://www.raycast.com/raycast/browser-bookmarks"
+    },
+    {
+      "rank": 35,
+      "page": 4,
+      "name": "bitwarden",
+      "title": "Bitwarden Vault",
+      "store": "https://www.raycast.com/jomifepe/bitwarden"
+    },
+    {
+      "rank": 36,
+      "page": 4,
+      "name": "deepcast",
+      "title": "Deepcast",
+      "store": "https://www.raycast.com/mooxl/deepcast"
+    },
+    {
+      "rank": 37,
+      "page": 4,
+      "name": "port-manager",
+      "title": "Port Manager",
+      "store": "https://www.raycast.com/lucaschultz/port-manager"
+    },
+    {
+      "rank": 38,
+      "page": 4,
+      "name": "google-workspace",
+      "title": "Google Workspace",
+      "store": "https://www.raycast.com/raycast/google-workspace"
+    },
+    {
+      "rank": 39,
+      "page": 4,
+      "name": "toothpick",
+      "title": "Toothpick",
+      "store": "https://www.raycast.com/VladCuciureanu/toothpick"
+    },
+    {
+      "rank": 40,
+      "page": 4,
+      "name": "change-case",
+      "title": "Change Case",
+      "store": "https://www.raycast.com/erics118/change-case"
+    },
+    {
+      "rank": 41,
+      "page": 5,
+      "name": "whatsapp",
+      "title": "WhatsApp",
+      "store": "https://www.raycast.com/vimtor/whatsapp"
+    },
+    {
+      "rank": 42,
+      "page": 5,
+      "name": "ray-so",
+      "title": "ray.so",
+      "store": "https://www.raycast.com/garrett/ray-so"
+    },
+    {
+      "rank": 43,
+      "page": 5,
+      "name": "docker",
+      "title": "Docker",
+      "store": "https://www.raycast.com/priithaamer/docker"
+    },
+    {
+      "rank": 44,
+      "page": 5,
+      "name": "google-maps-search",
+      "title": "Google Maps Search",
+      "store": "https://www.raycast.com/ratoru/google-maps-search"
+    },
+    {
+      "rank": 45,
+      "page": 5,
+      "name": "myip",
+      "title": "MyIP",
+      "store": "https://www.raycast.com/Kang/myip"
+    },
+    {
+      "rank": 46,
+      "page": 5,
+      "name": "installed-extensions",
+      "title": "Installed Extensions",
+      "store": "https://www.raycast.com/pernielsentikaer/installed-extensions"
+    },
+    {
+      "rank": 47,
+      "page": 5,
+      "name": "figma-files-raycast-extension",
+      "title": "Figma File Search",
+      "store": "https://www.raycast.com/michaelschultz/figma-files-raycast-extension"
+    },
+    {
+      "rank": 48,
+      "page": 5,
+      "name": "wikipedia",
+      "title": "Wikipedia",
+      "store": "https://www.raycast.com/vimtor/wikipedia"
+    },
+    {
+      "rank": 49,
+      "page": 5,
+      "name": "raycast-explorer",
+      "title": "Raycast Explorer",
+      "store": "https://www.raycast.com/raycast/raycast-explorer"
+    },
+    {
+      "rank": 50,
+      "page": 5,
+      "name": "tinypng",
+      "title": "TinyPNG",
+      "store": "https://www.raycast.com/kawamataryo/tinypng"
+    },
+    {
+      "rank": 51,
+      "page": 6,
+      "name": "weather",
+      "title": "Weather",
+      "store": "https://www.raycast.com/tonka3000/weather"
+    },
+    {
+      "rank": 52,
+      "page": 6,
+      "name": "cheatsheets",
+      "title": "Cheatsheets",
+      "store": "https://www.raycast.com/destiner/cheatsheets"
+    },
+    {
+      "rank": 53,
+      "page": 6,
+      "name": "ruler",
+      "title": "Ruler",
+      "store": "https://www.raycast.com/anwarulislam/ruler"
+    },
+    {
+      "rank": 54,
+      "page": 6,
+      "name": "svgl",
+      "title": "Svgl",
+      "store": "https://www.raycast.com/1weiho/svgl"
+    },
+    {
+      "rank": 55,
+      "page": 6,
+      "name": "password-generator",
+      "title": "Password Generator",
+      "store": "https://www.raycast.com/joshuaiz/password-generator"
+    },
+    {
+      "rank": 56,
+      "page": 6,
+      "name": "raycast-ollama",
+      "title": "Ollama AI",
+      "store": "https://www.raycast.com/massimiliano_pasquini/raycast-ollama"
+    },
+    {
+      "rank": 57,
+      "page": 6,
+      "name": "word-count",
+      "title": "Word Count",
+      "store": "https://www.raycast.com/itsmingjie/word-count"
+    },
+    {
+      "rank": 58,
+      "page": 6,
+      "name": "base64",
+      "title": "Base64",
+      "store": "https://www.raycast.com/DanielSinclair/base64"
+    },
+    {
+      "rank": 59,
+      "page": 6,
+      "name": "raindrop-io",
+      "title": "Raindrop.io",
+      "store": "https://www.raycast.com/lardissone/raindrop-io"
+    },
+    {
+      "rank": 60,
+      "page": 6,
+      "name": "gmail",
+      "title": "Gmail",
+      "store": "https://www.raycast.com/tonka3000/gmail"
+    },
+    {
+      "rank": 61,
+      "page": 7,
+      "name": "easydict",
+      "title": "Easy Dictionary",
+      "store": "https://www.raycast.com/isfeng/easydict"
+    },
+    {
+      "rank": 62,
+      "page": 7,
+      "name": "unsplash",
+      "title": "Unsplash",
+      "store": "https://www.raycast.com/eggsy/unsplash"
+    },
+    {
+      "rank": 63,
+      "page": 7,
+      "name": "qrcode-generator",
+      "title": "QR Code Generator",
+      "store": "https://www.raycast.com/Melvynx/qrcode-generator"
+    },
+    {
+      "rank": 64,
+      "page": 7,
+      "name": "random",
+      "title": "Random Data Generator",
+      "store": "https://www.raycast.com/loris/random"
+    },
+    {
+      "rank": 65,
+      "page": 7,
+      "name": "uuid-generator",
+      "title": "UUID Generator",
+      "store": "https://www.raycast.com/jmaeso/uuid-generator"
+    },
+    {
+      "rank": 66,
+      "page": 7,
+      "name": "unix-timestamp",
+      "title": "Unix Timestamp",
+      "store": "https://www.raycast.com/destiner/unix-timestamp"
+    },
+    {
+      "rank": 67,
+      "page": 7,
+      "name": "google-fonts",
+      "title": "Google Fonts",
+      "store": "https://www.raycast.com/GastroGeek/google-fonts"
+    },
+    {
+      "rank": 68,
+      "page": 7,
+      "name": "homeassistant",
+      "title": "Home Assistant",
+      "store": "https://www.raycast.com/tonka3000/homeassistant"
+    },
+    {
+      "rank": 69,
+      "page": 7,
+      "name": "iconify",
+      "title": "Iconify — Search Icons",
+      "store": "https://www.raycast.com/destiner/iconify"
+    },
+    {
+      "rank": 70,
+      "page": 7,
+      "name": "git-repos",
+      "title": "Git Repos",
+      "store": "https://www.raycast.com/moored/git-repos"
+    },
+    {
+      "rank": 71,
+      "page": 8,
+      "name": "curl",
+      "title": "cURL",
+      "store": "https://www.raycast.com/jonathangiardino/curl"
+    },
+    {
+      "rank": 72,
+      "page": 8,
+      "name": "media-converter",
+      "title": "Media Converter",
+      "store": "https://www.raycast.com/leandro.maia/media-converter"
+    },
+    {
+      "rank": 73,
+      "page": 8,
+      "name": "word-search",
+      "title": "Word Search",
+      "store": "https://www.raycast.com/rishabswift/word-search"
+    },
+    {
+      "rank": 74,
+      "page": 8,
+      "name": "ip-geolocation",
+      "title": "IP Geolocation",
+      "store": "https://www.raycast.com/koinzhang/ip-geolocation"
+    },
+    {
+      "rank": 75,
+      "page": 8,
+      "name": "paste-as-plain-text",
+      "title": "Paste as Plain Text",
+      "store": "https://www.raycast.com/koinzhang/paste-as-plain-text"
+    },
+    {
+      "rank": 76,
+      "page": 8,
+      "name": "reddit-search",
+      "title": "Reddit Search",
+      "store": "https://www.raycast.com/ewlcheng/reddit-search"
+    },
+    {
+      "rank": 77,
+      "page": 8,
+      "name": "calendar",
+      "title": "Quick Calendar",
+      "store": "https://www.raycast.com/fuksman/calendar"
+    },
+    {
+      "rank": 78,
+      "page": 8,
+      "name": "search-npm",
+      "title": "Search npm Packages",
+      "store": "https://www.raycast.com/mrmartineau/search-npm"
+    },
+    {
+      "rank": 79,
+      "page": 8,
+      "name": "raycast-wallpaper",
+      "title": "Raycast Wallpaper",
+      "store": "https://www.raycast.com/koinzhang/raycast-wallpaper"
+    },
+    {
+      "rank": 80,
+      "page": 8,
+      "name": "zen-browser",
+      "title": "Zen Browser",
+      "store": "https://www.raycast.com/Keyruu/zen-browser"
+    },
+    {
+      "rank": 81,
+      "page": 9,
+      "name": "hacker-news",
+      "title": "Hacker News",
+      "store": "https://www.raycast.com/thomas/hacker-news"
+    },
+    {
+      "rank": 82,
+      "page": 9,
+      "name": "vim-bro",
+      "title": "Vim Bro - Search Vim Commands",
+      "store": "https://www.raycast.com/ajaypremshankar/vim-bro"
+    },
+    {
+      "rank": 83,
+      "page": 9,
+      "name": "gitlab",
+      "title": "GitLab",
+      "store": "https://www.raycast.com/tonka3000/gitlab"
+    },
+    {
+      "rank": 84,
+      "page": 9,
+      "name": "diff-checker",
+      "title": "Diff Checker",
+      "store": "https://www.raycast.com/destiner/diff-checker"
+    },
+    {
+      "rank": 85,
+      "page": 9,
+      "name": "http-status-codes",
+      "title": "HTTP Status Codes",
+      "store": "https://www.raycast.com/Alex_/http-status-codes"
+    },
+    {
+      "rank": 86,
+      "page": 9,
+      "name": "microsoft-teams",
+      "title": "Microsoft Teams",
+      "store": "https://www.raycast.com/sven/microsoft-teams"
+    },
+    {
+      "rank": 87,
+      "page": 9,
+      "name": "unicode-symbols",
+      "title": "Unicode Symbols Search",
+      "store": "https://www.raycast.com/mmazzarolo/unicode-symbols"
+    },
+    {
+      "rank": 88,
+      "page": 9,
+      "name": "currency-exchange",
+      "title": "Currency Exchange",
+      "store": "https://www.raycast.com/xeric/currency-exchange"
+    },
+    {
+      "rank": 89,
+      "page": 9,
+      "name": "search-mdn",
+      "title": "Search MDN",
+      "store": "https://www.raycast.com/krzysztofzuraw/search-mdn"
+    },
+    {
+      "rank": 90,
+      "page": 9,
+      "name": "apple-maps-search",
+      "title": "Apple Maps Search",
+      "store": "https://www.raycast.com/djpowers/apple-maps-search"
+    },
+    {
+      "rank": 91,
+      "page": 10,
+      "name": "todo-list",
+      "title": "Todo List",
+      "store": "https://www.raycast.com/maggie/todo-list"
+    },
+    {
+      "rank": 92,
+      "page": 10,
+      "name": "jwt-decoder",
+      "title": "JWT Decoder",
+      "store": "https://www.raycast.com/gdsmith/jwt-decoder"
+    },
+    {
+      "rank": 93,
+      "page": 10,
+      "name": "summarize-youtube-video-with-ai",
+      "title": "Summarize YouTube Videos with AI",
+      "store": "https://www.raycast.com/kom/summarize-youtube-video-with-ai"
+    },
+    {
+      "rank": 94,
+      "page": 10,
+      "name": "zed-recent-projects",
+      "title": "Zed",
+      "store": "https://www.raycast.com/ewgenius/zed-recent-projects"
+    },
+    {
+      "rank": 95,
+      "page": 10,
+      "name": "meme-generator",
+      "title": "Meme Generator",
+      "store": "https://www.raycast.com/timoransky/meme-generator"
+    },
+    {
+      "rank": 96,
+      "page": 10,
+      "name": "confluence",
+      "title": "Confluence",
+      "store": "https://www.raycast.com/tbrown/confluence"
+    },
+    {
+      "rank": 97,
+      "page": 10,
+      "name": "flush-dns",
+      "title": "Flush DNS",
+      "store": "https://www.raycast.com/rasmusbe/flush-dns"
+    },
+    {
+      "rank": 98,
+      "page": 10,
+      "name": "imdb",
+      "title": "IMDb Search",
+      "store": "https://www.raycast.com/ryan/imdb"
+    },
+    {
+      "rank": 99,
+      "page": 10,
+      "name": "reclaim-ai",
+      "title": "Reclaim",
+      "store": "https://www.raycast.com/reclaim-ai/reclaim-ai"
+    },
+    {
+      "rank": 100,
+      "page": 10,
+      "name": "toggl-track",
+      "title": "Toggl Track",
+      "store": "https://www.raycast.com/franzwilhelm/toggl-track"
+    }
+  ]
+}

@@ -1,0 +1,706 @@
+{
+  "checkedAt": "2026-09-18T03:33:44.265Z",
+  "scope": "Public source syntax audit; not an authenticated runtime test. Dynamic strings and custom-component props are not counted.",
+  "extensions": [
+    {
+      "name": "1password",
+      "files": 27,
+      "displayLiterals": 36,
+      "matchedDisplayLiterals": 34,
+      "errors": []
+    },
+    {
+      "name": "apple-maps-search",
+      "files": 4,
+      "displayLiterals": 13,
+      "matchedDisplayLiterals": 13,
+      "errors": []
+    },
+    {
+      "name": "audio-device",
+      "files": 26,
+      "displayLiterals": 15,
+      "matchedDisplayLiterals": 14,
+      "errors": []
+    },
+    {
+      "name": "base64",
+      "files": 6,
+      "displayLiterals": 5,
+      "matchedDisplayLiterals": 5,
+      "errors": []
+    },
+    {
+      "name": "bitwarden",
+      "files": 125,
+      "displayLiterals": 164,
+      "matchedDisplayLiterals": 148,
+      "errors": []
+    },
+    {
+      "name": "browser-bookmarks",
+      "files": 33,
+      "displayLiterals": 14,
+      "matchedDisplayLiterals": 14,
+      "errors": []
+    },
+    {
+      "name": "calendar",
+      "files": 1,
+      "displayLiterals": 8,
+      "matchedDisplayLiterals": 8,
+      "errors": []
+    },
+    {
+      "name": "change-case",
+      "files": 26,
+      "displayLiterals": 15,
+      "matchedDisplayLiterals": 15,
+      "errors": []
+    },
+    {
+      "name": "chatgpt",
+      "files": 61,
+      "displayLiterals": 136,
+      "matchedDisplayLiterals": 134,
+      "errors": []
+    },
+    {
+      "name": "cheatsheets",
+      "files": 9,
+      "displayLiterals": 1,
+      "matchedDisplayLiterals": 1,
+      "errors": []
+    },
+    {
+      "name": "clean-keyboard",
+      "files": 2,
+      "displayLiterals": 12,
+      "matchedDisplayLiterals": 12,
+      "errors": []
+    },
+    {
+      "name": "coffee",
+      "files": 24,
+      "displayLiterals": 36,
+      "matchedDisplayLiterals": 36,
+      "errors": []
+    },
+    {
+      "name": "color-picker",
+      "files": 26,
+      "displayLiterals": 72,
+      "matchedDisplayLiterals": 64,
+      "errors": []
+    },
+    {
+      "name": "confluence",
+      "files": 27,
+      "displayLiterals": 18,
+      "matchedDisplayLiterals": 18,
+      "errors": []
+    },
+    {
+      "name": "curl",
+      "files": 7,
+      "displayLiterals": 46,
+      "matchedDisplayLiterals": 43,
+      "errors": []
+    },
+    {
+      "name": "currency-exchange",
+      "files": 2,
+      "displayLiterals": 9,
+      "matchedDisplayLiterals": 9,
+      "errors": []
+    },
+    {
+      "name": "deepcast",
+      "files": 36,
+      "displayLiterals": 19,
+      "matchedDisplayLiterals": 19,
+      "errors": []
+    },
+    {
+      "name": "diff-checker",
+      "files": 8,
+      "displayLiterals": 24,
+      "matchedDisplayLiterals": 23,
+      "errors": []
+    },
+    {
+      "name": "docker",
+      "files": 16,
+      "displayLiterals": 31,
+      "matchedDisplayLiterals": 29,
+      "errors": []
+    },
+    {
+      "name": "downloads-manager",
+      "files": 14,
+      "displayLiterals": 32,
+      "matchedDisplayLiterals": 32,
+      "errors": []
+    },
+    {
+      "name": "easydict",
+      "files": 161,
+      "displayLiterals": 113,
+      "matchedDisplayLiterals": 101,
+      "errors": []
+    },
+    {
+      "name": "figma-files-raycast-extension",
+      "files": 25,
+      "displayLiterals": 22,
+      "matchedDisplayLiterals": 22,
+      "errors": []
+    },
+    {
+      "name": "flush-dns",
+      "files": 3,
+      "displayLiterals": 5,
+      "matchedDisplayLiterals": 5,
+      "errors": []
+    },
+    {
+      "name": "gif-search",
+      "files": 25,
+      "displayLiterals": 45,
+      "matchedDisplayLiterals": 43,
+      "errors": []
+    },
+    {
+      "name": "git-repos",
+      "files": 6,
+      "displayLiterals": 26,
+      "matchedDisplayLiterals": 25,
+      "errors": []
+    },
+    {
+      "name": "github",
+      "files": 99,
+      "displayLiterals": 299,
+      "matchedDisplayLiterals": 298,
+      "errors": []
+    },
+    {
+      "name": "gitlab",
+      "files": 114,
+      "displayLiterals": 270,
+      "matchedDisplayLiterals": 263,
+      "errors": []
+    },
+    {
+      "name": "gmail",
+      "files": 25,
+      "displayLiterals": 39,
+      "matchedDisplayLiterals": 39,
+      "errors": []
+    },
+    {
+      "name": "google-calendar",
+      "files": 44,
+      "displayLiterals": 63,
+      "matchedDisplayLiterals": 62,
+      "errors": []
+    },
+    {
+      "name": "google-fonts",
+      "files": 4,
+      "displayLiterals": 9,
+      "matchedDisplayLiterals": 7,
+      "errors": []
+    },
+    {
+      "name": "google-maps-search",
+      "files": 8,
+      "displayLiterals": 17,
+      "matchedDisplayLiterals": 17,
+      "errors": []
+    },
+    {
+      "name": "google-search",
+      "files": 6,
+      "displayLiterals": 11,
+      "matchedDisplayLiterals": 11,
+      "errors": []
+    },
+    {
+      "name": "google-workspace",
+      "files": 17,
+      "displayLiterals": 49,
+      "matchedDisplayLiterals": 49,
+      "errors": []
+    },
+    {
+      "name": "hacker-news",
+      "files": 7,
+      "displayLiterals": 4,
+      "matchedDisplayLiterals": 4,
+      "errors": []
+    },
+    {
+      "name": "homeassistant",
+      "files": 157,
+      "displayLiterals": 197,
+      "matchedDisplayLiterals": 193,
+      "errors": []
+    },
+    {
+      "name": "http-status-codes",
+      "files": 3,
+      "displayLiterals": 5,
+      "matchedDisplayLiterals": 5,
+      "errors": []
+    },
+    {
+      "name": "iconify",
+      "files": 13,
+      "displayLiterals": 22,
+      "matchedDisplayLiterals": 22,
+      "errors": []
+    },
+    {
+      "name": "imdb",
+      "files": 16,
+      "displayLiterals": 21,
+      "matchedDisplayLiterals": 20,
+      "errors": []
+    },
+    {
+      "name": "installed-extensions",
+      "files": 8,
+      "displayLiterals": 10,
+      "matchedDisplayLiterals": 10,
+      "errors": []
+    },
+    {
+      "name": "ip-geolocation",
+      "files": 12,
+      "displayLiterals": 5,
+      "matchedDisplayLiterals": 5,
+      "errors": []
+    },
+    {
+      "name": "jira",
+      "files": 59,
+      "displayLiterals": 97,
+      "matchedDisplayLiterals": 96,
+      "errors": []
+    },
+    {
+      "name": "json-format",
+      "files": 9,
+      "displayLiterals": 20,
+      "matchedDisplayLiterals": 20,
+      "errors": []
+    },
+    {
+      "name": "jwt-decoder",
+      "files": 19,
+      "displayLiterals": 41,
+      "matchedDisplayLiterals": 37,
+      "errors": []
+    },
+    {
+      "name": "kill-process",
+      "files": 11,
+      "displayLiterals": 20,
+      "matchedDisplayLiterals": 20,
+      "errors": []
+    },
+    {
+      "name": "linear",
+      "files": 183,
+      "displayLiterals": 203,
+      "matchedDisplayLiterals": 203,
+      "errors": []
+    },
+    {
+      "name": "lorem-ipsum",
+      "files": 5,
+      "displayLiterals": 0,
+      "matchedDisplayLiterals": 0,
+      "errors": []
+    },
+    {
+      "name": "media-converter",
+      "files": 36,
+      "displayLiterals": 220,
+      "matchedDisplayLiterals": 214,
+      "errors": []
+    },
+    {
+      "name": "meme-generator",
+      "files": 18,
+      "displayLiterals": 25,
+      "matchedDisplayLiterals": 24,
+      "errors": []
+    },
+    {
+      "name": "microsoft-teams",
+      "files": 26,
+      "displayLiterals": 17,
+      "matchedDisplayLiterals": 17,
+      "errors": []
+    },
+    {
+      "name": "myip",
+      "files": 5,
+      "displayLiterals": 12,
+      "matchedDisplayLiterals": 11,
+      "errors": []
+    },
+    {
+      "name": "notion",
+      "files": 40,
+      "displayLiterals": 90,
+      "matchedDisplayLiterals": 89,
+      "errors": []
+    },
+    {
+      "name": "obsidian",
+      "files": 98,
+      "displayLiterals": 117,
+      "matchedDisplayLiterals": 115,
+      "errors": []
+    },
+    {
+      "name": "password-generator",
+      "files": 6,
+      "displayLiterals": 10,
+      "matchedDisplayLiterals": 10,
+      "errors": []
+    },
+    {
+      "name": "paste-as-plain-text",
+      "files": 4,
+      "displayLiterals": 0,
+      "matchedDisplayLiterals": 0,
+      "errors": []
+    },
+    {
+      "name": "perplexity",
+      "files": 1,
+      "displayLiterals": 1,
+      "matchedDisplayLiterals": 1,
+      "errors": []
+    },
+    {
+      "name": "port-manager",
+      "files": 32,
+      "displayLiterals": 45,
+      "matchedDisplayLiterals": 42,
+      "errors": []
+    },
+    {
+      "name": "qrcode-generator",
+      "files": 8,
+      "displayLiterals": 40,
+      "matchedDisplayLiterals": 28,
+      "errors": []
+    },
+    {
+      "name": "raindrop-io",
+      "files": 23,
+      "displayLiterals": 35,
+      "matchedDisplayLiterals": 34,
+      "errors": []
+    },
+    {
+      "name": "random",
+      "files": 7,
+      "displayLiterals": 12,
+      "matchedDisplayLiterals": 12,
+      "errors": []
+    },
+    {
+      "name": "ray-so",
+      "files": 3,
+      "displayLiterals": 18,
+      "matchedDisplayLiterals": 18,
+      "errors": []
+    },
+    {
+      "name": "raycast-explorer",
+      "files": 13,
+      "displayLiterals": 59,
+      "matchedDisplayLiterals": 59,
+      "errors": []
+    },
+    {
+      "name": "raycast-gemini",
+      "files": 25,
+      "displayLiterals": 50,
+      "matchedDisplayLiterals": 49,
+      "errors": []
+    },
+    {
+      "name": "raycast-ollama",
+      "files": 63,
+      "displayLiterals": 112,
+      "matchedDisplayLiterals": 112,
+      "errors": []
+    },
+    {
+      "name": "raycast-wallpaper",
+      "files": 15,
+      "displayLiterals": 20,
+      "matchedDisplayLiterals": 20,
+      "errors": []
+    },
+    {
+      "name": "reclaim-ai",
+      "files": 59,
+      "displayLiterals": 60,
+      "matchedDisplayLiterals": 59,
+      "errors": []
+    },
+    {
+      "name": "reddit-search",
+      "files": 31,
+      "displayLiterals": 22,
+      "matchedDisplayLiterals": 22,
+      "errors": []
+    },
+    {
+      "name": "remove-paywall",
+      "files": 5,
+      "displayLiterals": 14,
+      "matchedDisplayLiterals": 14,
+      "errors": []
+    },
+    {
+      "name": "ruler",
+      "files": 1,
+      "displayLiterals": 1,
+      "matchedDisplayLiterals": 1,
+      "errors": []
+    },
+    {
+      "name": "search-mdn",
+      "files": 8,
+      "displayLiterals": 18,
+      "matchedDisplayLiterals": 17,
+      "errors": []
+    },
+    {
+      "name": "search-npm",
+      "files": 15,
+      "displayLiterals": 33,
+      "matchedDisplayLiterals": 33,
+      "errors": []
+    },
+    {
+      "name": "shell",
+      "files": 2,
+      "displayLiterals": 13,
+      "matchedDisplayLiterals": 13,
+      "errors": []
+    },
+    {
+      "name": "slack",
+      "files": 61,
+      "displayLiterals": 85,
+      "matchedDisplayLiterals": 85,
+      "errors": []
+    },
+    {
+      "name": "speedtest",
+      "files": 24,
+      "displayLiterals": 29,
+      "matchedDisplayLiterals": 28,
+      "errors": []
+    },
+    {
+      "name": "spotify-player",
+      "files": 164,
+      "displayLiterals": 151,
+      "matchedDisplayLiterals": 151,
+      "errors": []
+    },
+    {
+      "name": "summarize-youtube-video-with-ai",
+      "files": 33,
+      "displayLiterals": 26,
+      "matchedDisplayLiterals": 25,
+      "errors": []
+    },
+    {
+      "name": "svgl",
+      "files": 37,
+      "displayLiterals": 83,
+      "matchedDisplayLiterals": 83,
+      "errors": []
+    },
+    {
+      "name": "tailwindcss",
+      "files": 11,
+      "displayLiterals": 9,
+      "matchedDisplayLiterals": 9,
+      "errors": []
+    },
+    {
+      "name": "tinypng",
+      "files": 6,
+      "displayLiterals": 4,
+      "matchedDisplayLiterals": 4,
+      "errors": []
+    },
+    {
+      "name": "todo-list",
+      "files": 18,
+      "displayLiterals": 35,
+      "matchedDisplayLiterals": 35,
+      "errors": []
+    },
+    {
+      "name": "todoist",
+      "files": 90,
+      "displayLiterals": 210,
+      "matchedDisplayLiterals": 209,
+      "errors": []
+    },
+    {
+      "name": "toggl-track",
+      "files": 56,
+      "displayLiterals": 92,
+      "matchedDisplayLiterals": 89,
+      "errors": []
+    },
+    {
+      "name": "toothpick",
+      "files": 50,
+      "displayLiterals": 9,
+      "matchedDisplayLiterals": 9,
+      "errors": []
+    },
+    {
+      "name": "translate",
+      "files": 20,
+      "displayLiterals": 49,
+      "matchedDisplayLiterals": 48,
+      "errors": []
+    },
+    {
+      "name": "unicode-symbols",
+      "files": 16,
+      "displayLiterals": 17,
+      "matchedDisplayLiterals": 17,
+      "errors": []
+    },
+    {
+      "name": "unix-timestamp",
+      "files": 4,
+      "displayLiterals": 13,
+      "matchedDisplayLiterals": 13,
+      "errors": []
+    },
+    {
+      "name": "unsplash",
+      "files": 20,
+      "displayLiterals": 43,
+      "matchedDisplayLiterals": 43,
+      "errors": []
+    },
+    {
+      "name": "uuid-generator",
+      "files": 11,
+      "displayLiterals": 29,
+      "matchedDisplayLiterals": 29,
+      "errors": []
+    },
+    {
+      "name": "video-downloader",
+      "files": 8,
+      "displayLiterals": 18,
+      "matchedDisplayLiterals": 15,
+      "errors": []
+    },
+    {
+      "name": "vim-bro",
+      "files": 3,
+      "displayLiterals": 9,
+      "matchedDisplayLiterals": 9,
+      "errors": []
+    },
+    {
+      "name": "visual-studio-code",
+      "files": 21,
+      "displayLiterals": 54,
+      "matchedDisplayLiterals": 54,
+      "errors": []
+    },
+    {
+      "name": "warp",
+      "files": 11,
+      "displayLiterals": 27,
+      "matchedDisplayLiterals": 27,
+      "errors": []
+    },
+    {
+      "name": "weather",
+      "files": 9,
+      "displayLiterals": 37,
+      "matchedDisplayLiterals": 36,
+      "errors": []
+    },
+    {
+      "name": "whatsapp",
+      "files": 15,
+      "displayLiterals": 35,
+      "matchedDisplayLiterals": 31,
+      "errors": []
+    },
+    {
+      "name": "wikipedia",
+      "files": 15,
+      "displayLiterals": 15,
+      "matchedDisplayLiterals": 15,
+      "errors": []
+    },
+    {
+      "name": "word-count",
+      "files": 8,
+      "displayLiterals": 16,
+      "matchedDisplayLiterals": 16,
+      "errors": []
+    },
+    {
+      "name": "word-search",
+      "files": 17,
+      "displayLiterals": 10,
+      "matchedDisplayLiterals": 10,
+      "errors": []
+    },
+    {
+      "name": "youtube",
+      "files": 19,
+      "displayLiterals": 36,
+      "matchedDisplayLiterals": 36,
+      "errors": []
+    },
+    {
+      "name": "zed-recent-projects",
+      "files": 22,
+      "displayLiterals": 22,
+      "matchedDisplayLiterals": 22,
+      "errors": []
+    },
+    {
+      "name": "zen-browser",
+      "files": 24,
+      "displayLiterals": 10,
+      "matchedDisplayLiterals": 10,
+      "errors": []
+    },
+    {
+      "name": "zoom",
+      "files": 20,
+      "displayLiterals": 31,
+      "matchedDisplayLiterals": 31,
+      "errors": []
+    }
+  ]
+}
