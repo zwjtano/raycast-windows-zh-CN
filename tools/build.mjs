@@ -20,10 +20,10 @@ const packageInfo = JSON.parse(execFileSync('powershell.exe', ['-NoProfile', '-C
   "Get-AppxPackage Raycast.Raycast | Select-Object Version,InstallLocation,Architecture,PackageFamilyName | ConvertTo-Json -Compress"], {encoding:'utf8'}));
 if (packageInfo.Version !== '2.4.0.0') throw new Error('Only Raycast 2.4.0.0 has been reviewed.');
 const root = path.join(packageInfo.InstallLocation, 'Raycast');
-const out = 'dist/Raycast-Windows-2.4.0.0-zh-CN-r5';
+const out = 'dist/Raycast-Windows-2.4.0.0-zh-CN-r6';
 await fs.mkdir(out, { recursive: true });
 const hash = data => createHash('sha256').update(data).digest('hex');
-const manifest = { format: 1, patchVersion: '2.4.0.0-r5', appVersion: packageInfo.Version,
+const manifest = { format: 1, patchVersion: '2.4.0.0-r6', appVersion: packageInfo.Version,
   architecture:'x64', family: packageInfo.PackageFamilyName, files: {},
   dictionaryEntries: Object.keys(dictionary).length, translatedOccurrences: 0 };
 for (const name of (await fs.readdir(path.join(root, 'frontend'))).filter(x => x.endsWith('.js'))) {

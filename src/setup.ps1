@@ -44,6 +44,9 @@ function Safe-Child($Relative) {
     return $full
 }
 try {
+    $installSteps=if($NoLaunch){4}else{5}
+    if($Action -eq 'install'){Write-Host "[1/$installSteps] 检查安装环境..."}
+    if($Action -eq 'uninstall'){Write-Host '[1/5] 检查卸载配置...'}
     $marker=Read-Marker
     if($Action -eq 'status') {
         if(-not $marker) {Write-Host '尚未安装汉化。';exit 0}
@@ -70,7 +73,8 @@ try {
     }
     if($Action -eq 'uninstall') {
         if(-not $marker) {Write-Host '尚未安装，无需卸载。';exit 0}
-        if($marker.originalEntry){WebView-Admin 'uninstall' $marker}
+        if($marker.originalEntry){Write-Host '正在请求管理员授权...';WebView-Admin 'uninstall' $marker}
+        Write-Host '[2/5] 正在退出 Raycast...'
         # End the app gracefully to remove all patched resources and the local debug endpoint.
         $agent=Safe-Child 'bundle/agent.mjs';$node=Safe-Child 'bundle/node.exe';$config=Safe-Child 'runtime/config.json'
         if((Test-Path -LiteralPath $agent) -and (Test-Path -LiteralPath $node) -and (Test-Path -LiteralPath $config)) {
@@ -82,6 +86,7 @@ try {
                 if(-not $p.CloseMainWindow() -or -not $p.WaitForExit(20000)) {throw '请先保存内容并从托盘退出 Raycast，然后重试卸载。'}
             }
         }
+        Write-Host '[3/5] 停止汉化服务...'
         $runtime=Safe-Child 'runtime'
         if(Test-Path -LiteralPath $runtime){Set-Content -LiteralPath (Join-Path $runtime 'stop') -Value 'stop' -Encoding ASCII}
         $statusFile=Join-Path $runtime 'status.json'
@@ -99,11 +104,13 @@ try {
         $watchPaths=@((Safe-Child 'bundle/watch.ps1'))
         if(Test-Path -LiteralPath $config){$watchPaths+=Join-Path ((Get-Content -LiteralPath $config -Raw -Encoding UTF8|ConvertFrom-Json).bundle) 'watch.ps1'}
         if($runValue -and @($watchPaths|Where-Object {$runValue.Contains($_)}).Count -gt 0){Remove-ItemProperty -LiteralPath $runKey -Name 'Raycast-zh-CN'}
+        Write-Host '[4/5] 恢复插件文件...'
         $patcher=Safe-Child 'bundle/plugin-patcher.cjs'
         if(Test-Path -LiteralPath $patcher){
             $restored=& $node $patcher restore $installRoot
             if($LASTEXITCODE -ne 0){throw '插件文件在汉化后被手动修改，未覆盖这些文件。已保留插件备份，请先处理冲突再卸载。'}
         }
+        Write-Host '[5/5] 清理安装文件...'
         $runtime=Safe-Child 'runtime'
         if(Test-Path -LiteralPath $runtime) {Set-Content -LiteralPath (Join-Path $runtime 'stop') -Value 'stop' -Encoding ASCII;Start-Sleep -Milliseconds 1500}
         foreach($link in @($desktop,$startMenu)) {
@@ -124,7 +131,7 @@ try {
         foreach($name in @('config.json','status.json','native-status.json','error.log','watch-error.log','stop')) { $file=Safe-Child ('runtime/'+$name);if(Test-Path -LiteralPath $file){Remove-Item -LiteralPath $file} }
         Remove-Item -LiteralPath $markerPath
         foreach($dir in @((Safe-Child 'bundle'),$runtime,$installRoot)) {if((Test-Path -LiteralPath $dir) -and -not (Get-ChildItem -LiteralPath $dir -Force)){Remove-Item -LiteralPath $dir}}
-        if(-not $NoLaunch) { $pkg=Get-AppxPackage Raycast.Raycast;if($pkg){Start-Process -FilePath (Join-Path $pkg.InstallLocation 'Raycast/Raycast.exe')} }
+        if(-not $NoLaunch) { Write-Host '正在启动 Raycast...';$pkg=Get-AppxPackage Raycast.Raycast;if($pkg){Start-Process -FilePath (Join-Path $pkg.InstallLocation 'Raycast/Raycast.exe')} }
         Write-Host '卸载完成。' -ForegroundColor Green
         exit 0
     }
@@ -144,6 +151,7 @@ try {
     foreach($property in $manifest.files.PSObject.Properties){
         if((Get-FileHash -LiteralPath (Join-Path $root ('frontend/'+$property.Name))).Hash.ToLowerInvariant() -ne $property.Value.sha256){throw ('资源指纹不匹配：'+$property.Name)}
     }
+    Write-Host "[2/$installSteps] 复制汉化文件..."
     $bundle=Join-Path $installRoot 'bundle'
     New-Item -ItemType Directory -Path $bundle -Force | Out-Null
     $files=@('manifest.json','inject.js','agent.mjs','launch.ps1','setup.ps1','watch.ps1','webview-admin.ps1','plugin-patcher.cjs','plugin-transform.cjs','plugin-scopes.cjs','plugin-dictionary.json','acorn.cjs','Acorn-LICENSE.txt','extensions.json','使用说明.md','THIRD-PARTY-NOTICES.md')
@@ -163,6 +171,7 @@ try {
         Copy-Item -LiteralPath (Join-Path $root 'backend/node.exe') -Destination (Join-Path $bundle 'node.exe')
         $runtime=Join-Path $installRoot 'runtime';New-Item -ItemType Directory -Path $runtime -Force|Out-Null
         Write-Utf8 (Join-Path $runtime 'config.json') (@{bundle=$bundle;appRoot=$root;port=$port;resident=$true}|ConvertTo-Json)
+        Write-Host "[3/$installSteps] 配置汉化，请允许管理员授权..."
         WebView-Admin 'install' $record
         $record.originalEntry=$true;Write-Utf8 $markerPath ($record|ConvertTo-Json -Depth 5)
         $powershell=Join-Path $env:SystemRoot 'System32/WindowsPowerShell/v1.0/powershell.exe'
@@ -176,8 +185,9 @@ try {
         # The marker records partial installs too, so the same uninstaller can recover.
         throw ('安装未完成，可运行卸载工具清理。原因：'+$_.Exception.Message)
     }
+    Write-Host "[4/$installSteps] 启动汉化服务..."
     $global:LASTEXITCODE=0; & (Join-Path $bundle 'watch.ps1') -NoPause
     if($LASTEXITCODE -ne 0){throw '后台组件启动失败，请检查状态。'}
     if($NoLaunch){Write-Host '安装完成。' -ForegroundColor Green}
-    if(-not $NoLaunch){ $global:LASTEXITCODE=0; & (Join-Path $bundle 'launch.ps1') -NoPause; if($LASTEXITCODE -ne 0){exit 1} }
+    if(-not $NoLaunch){ Write-Host '[5/5] 启动 Raycast，检查汉化...';$global:LASTEXITCODE=0; & (Join-Path $bundle 'launch.ps1') -NoPause; if($LASTEXITCODE -ne 0){exit 1} }
 } catch {Write-Host $_.Exception.Message -ForegroundColor Red;exit 1}
