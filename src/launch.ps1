@@ -10,7 +10,7 @@ try {
         if(Test-Path $file){try{$status=Get-Content $file -Raw -Encoding UTF8|ConvertFrom-Json}catch{continue};if($status.state -eq 'active' -and $status.pages -gt 0 -and $status.intercepted -gt 0){$active=$true;break}}
     }
     if(-not $active){throw '原版已启动，但中文加载尚未通过检查。请查看组件状态。'}
-    Write-Host '汉化已加载。以后直接从原版 Raycast 启动。' -ForegroundColor Green
+    Write-Host '安装完成。' -ForegroundColor Green
 }catch{
     Write-Host $_.Exception.Message -ForegroundColor Red
     if(-not $NoPause){Add-Type -AssemblyName System.Windows.Forms;[Windows.Forms.MessageBox]::Show($_.Exception.Message,'Raycast 汉化')|Out-Null}

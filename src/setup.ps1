@@ -55,7 +55,6 @@ try {
             if($worker -and $s.state -eq 'active'){Write-Host ('界面汉化：运行中；已加载中文资源 '+$s.intercepted+' 次。')}
             else {Write-Host '界面汉化：等待原版 Raycast 启动。'}
         }
-        Write-Host '此版本从原版入口启动；托盘右键菜单保留英文。'
         $nativeStatusPath=Join-Path $nativeRoot 'native-status.json'
         if(Test-Path -LiteralPath $nativeStatusPath) {
             $s=Get-Content -LiteralPath $nativeStatusPath -Raw -Encoding UTF8|ConvertFrom-Json
@@ -126,7 +125,7 @@ try {
         Remove-Item -LiteralPath $markerPath
         foreach($dir in @((Safe-Child 'bundle'),$runtime,$installRoot)) {if((Test-Path -LiteralPath $dir) -and -not (Get-ChildItem -LiteralPath $dir -Force)){Remove-Item -LiteralPath $dir}}
         if(-not $NoLaunch) { $pkg=Get-AppxPackage Raycast.Raycast;if($pkg){Start-Process -FilePath (Join-Path $pkg.InstallLocation 'Raycast/Raycast.exe')} }
-        Write-Host '汉化已卸载，官方 Raycast 文件始终保持原样。' -ForegroundColor Green
+        Write-Host '卸载完成。' -ForegroundColor Green
         exit 0
     }
     if($marker) {Write-Host '汉化已经安装。更新前请先卸载旧版。';exit 0}
@@ -179,6 +178,6 @@ try {
     }
     $global:LASTEXITCODE=0; & (Join-Path $bundle 'watch.ps1') -NoPause
     if($LASTEXITCODE -ne 0){throw '后台组件启动失败，请检查状态。'}
-    Write-Host '安装完成。以后直接从原版 Raycast 图标启动，不创建中文快捷方式。' -ForegroundColor Green
+    if($NoLaunch){Write-Host '安装完成。' -ForegroundColor Green}
     if(-not $NoLaunch){ $global:LASTEXITCODE=0; & (Join-Path $bundle 'launch.ps1') -NoPause; if($LASTEXITCODE -ne 0){exit 1} }
 } catch {Write-Host $_.Exception.Message -ForegroundColor Red;exit 1}
