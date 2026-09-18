@@ -122,7 +122,7 @@ try {
             $shortcut.WorkingDirectory=$bundle;$shortcut.IconLocation=(Join-Path $root 'Raycast.exe')+',0';$shortcut.Save()
         }
         New-Item -Path $uninstallKey -Force | Out-Null
-        $values=@{DisplayName='Raycast 简体中文组件（预览版）';DisplayVersion=$manifest.patchVersion;Publisher='zwjtano';InstallLocation=$installRoot;
+        $values=@{DisplayName='Raycast 简体中文组件';DisplayVersion=$manifest.patchVersion;Publisher='zwjtano';InstallLocation=$installRoot;
             UninstallString='"'+$powershell+'" -NoProfile -ExecutionPolicy Bypass -File "'+(Join-Path $bundle 'setup.ps1')+'" -Action uninstall'}
         foreach($key in $values.Keys){New-ItemProperty -LiteralPath $uninstallKey -Name $key -Value $values[$key] -PropertyType String -Force|Out-Null}
     } catch {
