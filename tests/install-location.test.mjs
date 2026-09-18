@@ -14,13 +14,14 @@ test('Explorer and packaged launchers resolve legacy installations; new installs
     fs.writeFileSync(script,'\ufeff'+prefix+'\n[Console]::Write($installRoot)', 'utf8');
     const local=path.join(root,'AppData','Local');
     const resolve=()=>execFileSync('powershell.exe',['-NoProfile','-File',script],{cwd:os.tmpdir(),encoding:'utf8',env:{...process.env,USERPROFILE:root,LOCALAPPDATA:local}}).trim();
+    const sameDirectory=expected=>assert.equal(fs.realpathSync.native(resolve()).toLowerCase(),fs.realpathSync.native(expected).toLowerCase());
     const mark=p=>{fs.mkdirSync(p,{recursive:true});fs.writeFileSync(path.join(p,'installation.json'),JSON.stringify({product:'Raycast-zh-CN-Windows'}));};
     assert.equal(resolve(),path.join(root,'.raycast-zh-CN'));
     const legacy=path.join(local,'Raycast-zh-CN');mark(legacy);
-    assert.equal(resolve(),legacy);
+    sameDirectory(legacy);
     const redirected=path.join(local,'Packages','OpenAI.Codex_test','LocalCache','Local','Raycast-zh-CN');mark(redirected);
-    assert.equal(resolve(),redirected);
+    sameDirectory(redirected);
     const current=path.join(root,'.raycast-zh-CN');mark(current);
-    assert.equal(resolve(),current);
+    sameDirectory(current);
   } finally {fs.rmSync(root,{recursive:true,force:true});}
 });
