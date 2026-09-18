@@ -111,7 +111,10 @@ export async function runAgent(configPath) {
       for (const [id,c] of clients) if(c.closed || !targets.some(t=>t.id===id)){c.close();clients.delete(id);}
       for (const t of targets) if(t.type==='page'&&!clients.has(t.id)) await attach(t);
       await save();
-    } catch { /* Raycast can create its first WebView after the host starts. */ }
+    } catch {
+      for(const c of clients.values())c.close();clients.clear();status.state='waiting';
+      await save();
+    }
     await new Promise(resolve=>setTimeout(resolve,800));
   }
   for(const c of clients.values()) {

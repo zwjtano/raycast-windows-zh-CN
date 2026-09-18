@@ -20,10 +20,10 @@ const packageInfo = JSON.parse(execFileSync('powershell.exe', ['-NoProfile', '-C
   "Get-AppxPackage Raycast.Raycast | Select-Object Version,InstallLocation,Architecture,PackageFamilyName | ConvertTo-Json -Compress"], {encoding:'utf8'}));
 if (packageInfo.Version !== '2.4.0.0') throw new Error('Only Raycast 2.4.0.0 has been reviewed.');
 const root = path.join(packageInfo.InstallLocation, 'Raycast');
-const out = 'dist/Raycast-Windows-2.4.0.0-zh-CN-r2';
+const out = 'dist/Raycast-Windows-2.4.0.0-zh-CN-r3';
 await fs.mkdir(out, { recursive: true });
 const hash = data => createHash('sha256').update(data).digest('hex');
-const manifest = { format: 1, patchVersion: '2.4.0.0-r2', appVersion: packageInfo.Version,
+const manifest = { format: 1, patchVersion: '2.4.0.0-r3', appVersion: packageInfo.Version,
   architecture:'x64', family: packageInfo.PackageFamilyName, files: {},
   dictionaryEntries: Object.keys(dictionary).length, translatedOccurrences: 0 };
 for (const name of (await fs.readdir(path.join(root, 'frontend'))).filter(x => x.endsWith('.js'))) {
@@ -40,11 +40,7 @@ manifest.backendSha256 = hash(await fs.readFile(path.join(root, 'backend', 'inde
 manifest.nodeSha256 = hash(await fs.readFile(path.join(root, 'backend', 'node.exe')));
 await fs.writeFile(path.join(out, 'manifest.json'), JSON.stringify(manifest, null, 2));
 await fs.writeFile(path.join(out, 'inject.js'), (await fs.readFile('src/inject.js','utf8')).replace('__DICTIONARY__', JSON.stringify(dictionary)));
-const hookPath = path.resolve(out, 'NativeMenuHook.dll');
-await fs.rm(hookPath, {force:true});
-execFileSync('powershell.exe',['-NoProfile','-ExecutionPolicy','Bypass','-File','tools/compile-hook.ps1',
-  '-Source',path.resolve('src/NativeMenuHook.cs'),'-Output',hookPath],{stdio:'pipe'});
-manifest.nativeHookSha256=hash(await fs.readFile(hookPath));
+await fs.rm(path.join(out,'NativeMenuHook.dll'),{force:true});
 await fs.copyFile('node_modules/acorn/dist/acorn.js',path.join(out,'acorn.cjs'));
 await fs.copyFile('node_modules/acorn/LICENSE',path.join(out,'Acorn-LICENSE.txt'));
 await fs.writeFile(path.join(out,'plugin-dictionary.json'),JSON.stringify(dictionary));
@@ -54,7 +50,7 @@ await fs.copyFile('translations/extensions.json',path.join(out,'extensions.json'
 manifest.pluginFiles={};
 for(const file of ['plugin-patcher.cjs','plugin-transform.cjs','plugin-scopes.cjs','plugin-dictionary.json','acorn.cjs','extensions.json']) manifest.pluginFiles[file]=hash(await fs.readFile(path.join(out,file)));
 await fs.writeFile(path.join(out, 'manifest.json'), JSON.stringify(manifest,null,2));
-for (const file of ['agent.mjs','launch.ps1','setup.ps1']) {
+for (const file of ['agent.mjs','launch.ps1','setup.ps1','watch.ps1','webview-admin.ps1']) {
   const data=await fs.readFile(`src/${file}`);
   await fs.writeFile(path.join(out,file),file.endsWith('.ps1') ? Buffer.concat([Buffer.from([0xef,0xbb,0xbf]),data]) : data);
 }

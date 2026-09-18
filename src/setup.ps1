@@ -7,6 +7,12 @@ $nativeRoot=Join-Path $env:LOCALAPPDATA 'Packages/Raycast.Raycast_qypenmj9wpt2a/
 $uninstallKey='HKCU:/Software/Microsoft/Windows/CurrentVersion/Uninstall/Raycast-zh-CN'
 $desktop=Join-Path ([Environment]::GetFolderPath('Desktop')) 'Raycast（简体中文）.lnk'
 $startMenu=Join-Path ([Environment]::GetFolderPath('Programs')) 'Raycast（简体中文）.lnk'
+$runKey='HKCU:/Software/Microsoft/Windows/CurrentVersion/Run'
+function WebView-Admin($Mode,$Record) {
+    $script=Join-Path $PSScriptRoot 'webview-admin.ps1'
+    $process=Start-Process -FilePath (Join-Path $env:SystemRoot 'System32/WindowsPowerShell/v1.0/powershell.exe') -Verb RunAs -WindowStyle Hidden -ArgumentList @('-NoProfile','-ExecutionPolicy','Bypass','-File',('"'+$script+'"'),'-Action',$Mode,'-UserSid',$Record.userSid,'-Port',$Record.port) -Wait -PassThru
+    if($process.ExitCode -ne 0){throw 'Raycast 加载配置未完成。请允许管理员授权；若已有或手动修改过 WebView2 配置，请先检查该配置。'}
+}
 function Write-Utf8($File,$Text) { [IO.File]::WriteAllText($File,$Text,(New-Object Text.UTF8Encoding($false))) }
 function Read-Marker {
     if (-not (Test-Path -LiteralPath $markerPath)) { return $null }
@@ -29,8 +35,9 @@ try {
             $s=Get-Content -LiteralPath $statusPath -Raw -Encoding UTF8|ConvertFrom-Json
             $worker=Get-Process -Id $s.pid -ErrorAction SilentlyContinue
             if($worker -and $s.state -eq 'active'){Write-Host ('界面汉化：运行中；已加载中文资源 '+$s.intercepted+' 次。')}
-            else {Write-Host '界面汉化：未运行。请使用中文快捷方式启动。'}
+            else {Write-Host '界面汉化：等待原版 Raycast 启动。'}
         }
+        Write-Host '此版本从原版入口启动；托盘右键菜单保留英文。'
         $nativeStatusPath=Join-Path $nativeRoot 'native-status.json'
         if(Test-Path -LiteralPath $nativeStatusPath) {
             $s=Get-Content -LiteralPath $nativeStatusPath -Raw -Encoding UTF8|ConvertFrom-Json
@@ -46,6 +53,7 @@ try {
     }
     if($Action -eq 'uninstall') {
         if(-not $marker) {Write-Host '尚未安装，无需卸载。';exit 0}
+        if($marker.originalEntry){WebView-Admin 'uninstall' $marker}
         # End the app gracefully to remove all patched resources and the local debug endpoint.
         $agent=Safe-Child 'bundle/agent.mjs';$node=Safe-Child 'bundle/node.exe';$config=Safe-Child 'runtime/config.json'
         if((Test-Path -LiteralPath $agent) -and (Test-Path -LiteralPath $node) -and (Test-Path -LiteralPath $config)) {
@@ -57,6 +65,19 @@ try {
                 if(-not $p.CloseMainWindow() -or -not $p.WaitForExit(20000)) {throw '请先保存内容并从托盘退出 Raycast，然后重试卸载。'}
             }
         }
+        $runtime=Safe-Child 'runtime'
+        if(Test-Path -LiteralPath $runtime){Set-Content -LiteralPath (Join-Path $runtime 'stop') -Value 'stop' -Encoding ASCII}
+        $statusFile=Join-Path $runtime 'status.json'
+        if(Test-Path -LiteralPath $statusFile){
+            $lastStatus=Get-Content -LiteralPath $statusFile -Raw -Encoding UTF8|ConvertFrom-Json
+            $worker=Get-CimInstance Win32_Process -Filter "ProcessId=$($lastStatus.pid)" -ErrorAction SilentlyContinue
+            if($worker -and $worker.CommandLine.Contains((Safe-Child 'bundle/agent.mjs'))){
+                $workerProcess=Get-Process -Id $lastStatus.pid -ErrorAction SilentlyContinue
+                if($workerProcess -and -not $workerProcess.WaitForExit(15000)){throw '汉化进程正在退出，请稍后重试。'}
+            }
+        }
+        $runValue=(Get-ItemProperty -LiteralPath $runKey -Name 'Raycast-zh-CN' -ErrorAction SilentlyContinue).'Raycast-zh-CN'
+        if($runValue -and $runValue.Contains((Safe-Child 'bundle/watch.ps1'))){Remove-ItemProperty -LiteralPath $runKey -Name 'Raycast-zh-CN'}
         $patcher=Safe-Child 'bundle/plugin-patcher.cjs'
         if(Test-Path -LiteralPath $patcher){
             $restored=& $node $patcher restore $installRoot
@@ -79,7 +100,7 @@ try {
         }
         # Remove only our tracked files; preserve any user-added files.
         foreach($relative in $marker.files) { $file=Safe-Child $relative; if(Test-Path -LiteralPath $file -PathType Leaf){Remove-Item -LiteralPath $file} }
-        foreach($name in @('config.json','status.json','native-status.json','error.log','stop')) { $file=Safe-Child ('runtime/'+$name);if(Test-Path -LiteralPath $file){Remove-Item -LiteralPath $file} }
+        foreach($name in @('config.json','status.json','native-status.json','error.log','watch-error.log','stop')) { $file=Safe-Child ('runtime/'+$name);if(Test-Path -LiteralPath $file){Remove-Item -LiteralPath $file} }
         Remove-Item -LiteralPath $markerPath
         foreach($dir in @((Safe-Child 'bundle'),$runtime,$installRoot)) {if((Test-Path -LiteralPath $dir) -and -not (Get-ChildItem -LiteralPath $dir -Force)){Remove-Item -LiteralPath $dir}}
         if(-not $NoLaunch) { $pkg=Get-AppxPackage Raycast.Raycast;if($pkg){Start-Process -FilePath (Join-Path $pkg.InstallLocation 'Raycast/Raycast.exe')} }
@@ -87,8 +108,12 @@ try {
         exit 0
     }
     if($marker) {Write-Host '汉化已经安装。更新前请先卸载旧版。';exit 0}
-    if(Test-Path -LiteralPath $installRoot) {throw '目标目录已经存在但没有有效安装标记，请检查目录后再安装。'}
-    foreach($link in @($desktop,$startMenu)){if(Test-Path -LiteralPath $link){throw ('存在同名快捷方式，请先处理：'+$link)}}
+    if(Test-Path -LiteralPath $installRoot) {
+        $existing=@(Get-ChildItem -LiteralPath $installRoot -Recurse -Force)
+        if(@($existing | Where-Object {-not $_.PSIsContainer -or ($_.Attributes -band [IO.FileAttributes]::ReparsePoint)}).Count -gt 0){throw '目标目录已有文件但没有有效安装标记，请检查目录后再安装。'}
+    }
+    if(Get-Process Raycast -ErrorAction SilentlyContinue){throw '请先从 Raycast 托盘菜单选择 Quit／退出，然后安装。'}
+    if((Get-ItemProperty -LiteralPath $runKey -Name 'Raycast-zh-CN' -ErrorAction SilentlyContinue).'Raycast-zh-CN'){throw '同名后台启动配置已存在，未覆盖。'}
     $manifest=Get-Content -LiteralPath (Join-Path $PSScriptRoot 'manifest.json') -Raw -Encoding UTF8 | ConvertFrom-Json
     $pkg=@(Get-AppxPackage Raycast.Raycast | Where-Object {$_.Version -eq $manifest.appVersion -and $_.Architecture -eq 'X64'})
     if($pkg.Count -ne 1){throw '此包仅适配 Microsoft Store 版 Raycast 2.4.0.0 x64。'}
@@ -100,27 +125,28 @@ try {
     }
     $bundle=Join-Path $installRoot 'bundle'
     New-Item -ItemType Directory -Path $bundle -Force | Out-Null
-    $files=@('manifest.json','inject.js','agent.mjs','launch.ps1','setup.ps1','NativeMenuHook.dll','plugin-patcher.cjs','plugin-transform.cjs','plugin-scopes.cjs','plugin-dictionary.json','acorn.cjs','Acorn-LICENSE.txt','extensions.json','使用说明.md','THIRD-PARTY-NOTICES.md')
-    $record=@{product=$product;version=$manifest.patchVersion;nativeHook=$true;files=@($files|ForEach-Object{'bundle/'+$_})+@('bundle/node.exe')}
+    $files=@('manifest.json','inject.js','agent.mjs','launch.ps1','setup.ps1','watch.ps1','webview-admin.ps1','plugin-patcher.cjs','plugin-transform.cjs','plugin-scopes.cjs','plugin-dictionary.json','acorn.cjs','Acorn-LICENSE.txt','extensions.json','使用说明.md','THIRD-PARTY-NOTICES.md')
+    $port=0
+    for($attempt=0;$attempt -lt 30;$attempt++){
+        $candidate=Get-Random -Minimum 40000 -Maximum 60001
+        $listener=New-Object Net.Sockets.TcpListener([Net.IPAddress]::Loopback,$candidate)
+        try{$listener.Start();$port=$candidate;break}catch{}finally{$listener.Stop()}
+    }
+    if(-not $port){throw '没有找到可用的本机加载端口。'}
+    $record=@{product=$product;version=$manifest.patchVersion;nativeHook=$false;originalEntry=$false;userSid=[Security.Principal.WindowsIdentity]::GetCurrent().User.Value;port=$port;files=@($files|ForEach-Object{'bundle/'+$_})+@('bundle/node.exe')}
     Write-Utf8 $markerPath ($record|ConvertTo-Json -Depth 5)
     try {
         foreach($file in $files){Copy-Item -LiteralPath (Join-Path $PSScriptRoot $file) -Destination (Join-Path $bundle $file)}
         # MSIX does not allow external processes to execute its private Node.
         # Copy the user's existing runtime locally; it is not shipped in the ZIP.
         Copy-Item -LiteralPath (Join-Path $root 'backend/node.exe') -Destination (Join-Path $bundle 'node.exe')
-        if(Test-Path -LiteralPath $nativeRoot) {
-            $owner=Join-Path $nativeRoot 'owner.txt'
-            if(-not (Test-Path -LiteralPath $owner) -or [IO.File]::ReadAllText($owner).Trim() -ne $product){throw '原生菜单模块目录已存在且不属于本安装器。'}
-        } else {New-Item -ItemType Directory -Path $nativeRoot|Out-Null}
-        Write-Utf8 (Join-Path $nativeRoot 'owner.txt') $product
-        Copy-Item -LiteralPath (Join-Path $bundle 'NativeMenuHook.dll') -Destination (Join-Path $nativeRoot 'NativeMenuHook.dll')
+        $runtime=Join-Path $installRoot 'runtime';New-Item -ItemType Directory -Path $runtime -Force|Out-Null
+        Write-Utf8 (Join-Path $runtime 'config.json') (@{bundle=$bundle;appRoot=$root;port=$port;resident=$true}|ConvertTo-Json)
+        WebView-Admin 'install' $record
+        $record.originalEntry=$true;Write-Utf8 $markerPath ($record|ConvertTo-Json -Depth 5)
         $powershell=Join-Path $env:SystemRoot 'System32/WindowsPowerShell/v1.0/powershell.exe'
-        foreach($link in @($desktop,$startMenu)) {
-            $shortcut=(New-Object -ComObject WScript.Shell).CreateShortcut($link)
-            $shortcut.TargetPath=$powershell
-            $shortcut.Arguments='-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "'+(Join-Path $bundle 'launch.ps1')+'"'
-            $shortcut.WorkingDirectory=$bundle;$shortcut.IconLocation=(Join-Path $root 'Raycast.exe')+',0';$shortcut.Save()
-        }
+        if(-not(Test-Path -LiteralPath $runKey)){New-Item -Path $runKey -Force|Out-Null}
+        New-ItemProperty -LiteralPath $runKey -Name 'Raycast-zh-CN' -Value ('"'+$powershell+'" -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "'+(Join-Path $bundle 'watch.ps1')+'" -NoPause') -PropertyType String -Force|Out-Null
         New-Item -Path $uninstallKey -Force | Out-Null
         $values=@{DisplayName='Raycast 简体中文组件';DisplayVersion=$manifest.patchVersion;Publisher='zwjtano';InstallLocation=$installRoot;
             UninstallString='"'+$powershell+'" -NoProfile -ExecutionPolicy Bypass -File "'+(Join-Path $bundle 'setup.ps1')+'" -Action uninstall'}
@@ -129,6 +155,8 @@ try {
         # The marker records partial installs too, so the same uninstaller can recover.
         throw ('安装未完成，可运行卸载工具清理。原因：'+$_.Exception.Message)
     }
-    Write-Host '安装完成。桌面已创建“Raycast（简体中文）”。' -ForegroundColor Green
+    $global:LASTEXITCODE=0; & (Join-Path $bundle 'watch.ps1') -NoPause
+    if($LASTEXITCODE -ne 0){throw '后台组件启动失败，请检查状态。'}
+    Write-Host '安装完成。以后直接从原版 Raycast 图标启动，不创建中文快捷方式。' -ForegroundColor Green
     if(-not $NoLaunch){ $global:LASTEXITCODE=0; & (Join-Path $bundle 'launch.ps1') -NoPause; if($LASTEXITCODE -ne 0){exit 1} }
 } catch {Write-Host $_.Exception.Message -ForegroundColor Red;exit 1}
