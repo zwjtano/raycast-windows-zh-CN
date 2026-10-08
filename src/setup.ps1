@@ -144,7 +144,7 @@ try {
     if((Get-ItemProperty -LiteralPath $runKey -Name 'Raycast-zh-CN' -ErrorAction SilentlyContinue).'Raycast-zh-CN'){throw '同名后台启动配置已存在，未覆盖。'}
     $manifest=Get-Content -LiteralPath (Join-Path $PSScriptRoot 'manifest.json') -Raw -Encoding UTF8 | ConvertFrom-Json
     $pkg=@(Get-AppxPackage Raycast.Raycast | Where-Object {$_.Version -eq $manifest.appVersion -and $_.Architecture -eq 'X64'})
-    if($pkg.Count -ne 1){throw '此包仅适配 Microsoft Store 版 Raycast 2.4.0.0 x64。'}
+    if($pkg.Count -ne 1){throw ('此包仅适配 Microsoft Store 版 Raycast '+$manifest.appVersion+' x64。')}
     $root=Join-Path $pkg[0].InstallLocation 'Raycast'
     if((Get-FileHash -LiteralPath (Join-Path $root 'Raycast.dll')).Hash.ToLowerInvariant() -ne $manifest.hostSha256){throw '主程序指纹不匹配。'}
     if((Get-FileHash -LiteralPath (Join-Path $root 'backend/node.exe')).Hash.ToLowerInvariant() -ne $manifest.nodeSha256){throw '运行时指纹不匹配。'}

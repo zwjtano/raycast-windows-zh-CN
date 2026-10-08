@@ -6,7 +6,7 @@ import { JSDOM } from 'jsdom';
 import { translateSource } from '../src/transform.mjs';
 import { applyEdits, CDP } from '../src/agent.mjs';
 
-const dictionary={Cancel:'取消',Delete:'删除',Name:'名称',Tab:'标签页','Open Command':'打开命令',Command:'命令',Favorites:'收藏'};
+const dictionary={Cancel:'取消',Delete:'删除',Name:'名称',Tab:'标签页','Open Command':'打开命令',Command:'命令',Favorites:'收藏','AI Extension':'AI 扩展','AI Command':'AI 命令'};
 test('display translations preserve enum values, keys, imports and user data',()=>{
   const input='import x from "Cancel"; const Cancel="Cancel"; const a={title:"Cancel",value:"Cancel",name:"Cancel",id:"Cancel",url:"Cancel",children:["Delete",f()]}; if(x==="Cancel")run("Cancel");';
   const {output,edits}=translateSource(input,dictionary);
@@ -35,7 +35,34 @@ test('debug connections cannot target the network',()=>{
   assert.throws(()=>new CDP('ws://example.com:1234/test'),/loopback/);
   assert.throws(()=>new CDP('wss://127.0.0.1:1234/test'),/loopback/);
 });
-const inject=(await fs.readFile(new URL('../src/inject.js',import.meta.url),'utf8')).replace('__DICTIONARY__',JSON.stringify(dictionary));
+const releases=JSON.parse(await fs.readFile(new URL('../translations/releases.json',import.meta.url),'utf8'));
+const inject=(await fs.readFile(new URL('../src/inject.js',import.meta.url),'utf8')).replace('__DICTIONARY__',()=>JSON.stringify(dictionary)).replace('__RELEASES__',()=>JSON.stringify(releases));
+
+test('reviewed release page translates every block and restores its banner and markup',()=>{
+  const release=releases['2.7.1.0'];
+  const dom=new JSDOM(`<div data-is-base-view-root><header><span>${release.title}</span></header><div class="markdown__root_a"><img alt="image" src="${release.image}">${Object.keys(release.blocks).map(b=>`<p>${b}</p>`).join('')}<p>Unknown upstream content</p></div></div>`,{runScripts:'outside-only',pretendToBeVisual:true});
+  const d=dom.window.document, original=d.body.innerHTML;
+  dom.window.mainRouter={state:{location:{pathname:'/whats-new'}}};dom.window.eval(inject);
+  assert.equal(d.querySelector('header').textContent,release.localizedTitle);
+  assert.match(d.querySelector('img').src,/^data:image\/svg\+xml/);
+  assert.deepEqual([...d.querySelectorAll('p')].slice(0,-1).map(e=>e.innerHTML),Object.values(release.blocks));
+  assert.equal(d.querySelector('p:last-child').textContent,'Unknown upstream content');
+  dom.window.__raycastZhCN.stop();assert.equal(d.body.innerHTML,original);dom.window.close();
+});
+
+test('release translation does not alter matching content on other routes',()=>{
+  const release=releases['2.7.1.0'];const original=Object.keys(release.blocks)[0];
+  const dom=new JSDOM(`<div class="markdown__root_a"><img src="${release.image}"><p>${original}</p></div>`,{runScripts:'outside-only',pretendToBeVisual:true});
+  dom.window.mainRouter={state:{location:{pathname:'/ai-chat'}}};dom.window.eval(inject);
+  assert.equal(dom.window.document.querySelector('p').textContent,original);
+  assert.equal(dom.window.document.querySelector('img').src,release.image);dom.window.close();
+});
+test('2.7 search hint translates without changing typed text or its width sizer',()=>{
+  const dom=new JSDOM('<span class="search-field-ui__placeholder_a">Name</span><span class="search-field-ui__widthSizer_a">Name</span><span class="search-field-ui__input_a" contenteditable="true">Name</span>',{runScripts:'outside-only',pretendToBeVisual:true});
+  dom.window.eval(inject);const nodes=dom.window.document.querySelectorAll('span');
+  assert.equal(nodes[0].textContent,'名称');assert.equal(nodes[1].textContent,'Name');assert.equal(nodes[2].textContent,'Name');
+  dom.window.__raycastZhCN.stop();assert.equal(nodes[0].textContent,'Name');dom.window.close();
+});
 test('dynamic controls translate without changing input values, drafts or shortcut keys',()=>{
   const dom=new JSDOM('<button>Cancel<kbd>Tab</kbd></button><input placeholder="Name" value="Name"><textarea>Delete</textarea><div contenteditable="true"><button>Cancel</button></div><pre>Delete</pre><div id="data">Delete</div>',{runScripts:'outside-only',pretendToBeVisual:true});
   dom.window.eval(inject);const d=dom.window.document;
@@ -54,4 +81,11 @@ test('React-style updates translate again and uninstall preserves subsequent use
 test('root search translates commands, preserves application names',()=>{
   const dom=new JSDOM('<div class="root-search-nav-hint__test"></div><div class="standard-list-item__root_a"><span class="standard-list-item__title_a">Cancel</span><span class="standard-list-item__labelAccessory_a">Application</span></div><div class="standard-list-item__root_a"><span class="standard-list-item__title_a">Open Command</span><span class="standard-list-item__labelAccessory_a">Command</span></div>',{runScripts:'outside-only',pretendToBeVisual:true});dom.window.eval(inject);
   const titles=dom.window.document.querySelectorAll('[class*="standard-list-item__title_"]');assert.equal(titles[0].textContent,'Cancel');assert.equal(titles[1].textContent,'打开命令');dom.window.close();
+});
+
+test('expanded root search translates AI type labels without renaming user commands',()=>{
+  const dom=new JSDOM(['AI Extension','AI Command'].map(kind=>`<div class="standard-list-item__root_a"><span class="standard-list-item__title_a">Name</span><span class="standard-list-item__labelAccessory_a">${kind}</span></div>`).join(''),{runScripts:'outside-only',pretendToBeVisual:true});
+  dom.window.mainRouter={state:{location:{pathname:'/'}}};dom.window.eval(inject);
+  assert.deepEqual([...dom.window.document.querySelectorAll('[class*=labelAccessory]')].map(e=>e.textContent),['AI 扩展','AI 命令']);
+  assert.deepEqual([...dom.window.document.querySelectorAll('[class*=title_]')].map(e=>e.textContent),['Name','Name']);dom.window.close();
 });

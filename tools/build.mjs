@@ -18,12 +18,12 @@ Object.assign(dictionary, {
 });
 const packageInfo = JSON.parse(execFileSync('powershell.exe', ['-NoProfile', '-Command',
   "Get-AppxPackage Raycast.Raycast | Select-Object Version,InstallLocation,Architecture,PackageFamilyName | ConvertTo-Json -Compress"], {encoding:'utf8'}));
-if (packageInfo.Version !== '2.4.0.0') throw new Error('Only Raycast 2.4.0.0 has been reviewed.');
+if (packageInfo.Version !== '2.7.1.0') throw new Error('Only Raycast 2.7.1.0 has been reviewed.');
 const root = path.join(packageInfo.InstallLocation, 'Raycast');
-const out = 'dist/Raycast-Windows-2.4.0.0-zh-CN-r6';
+const out = 'dist/Raycast-Windows-2.7.1.0-zh-CN-r1';
 await fs.mkdir(out, { recursive: true });
 const hash = data => createHash('sha256').update(data).digest('hex');
-const manifest = { format: 1, patchVersion: '2.4.0.0-r6', appVersion: packageInfo.Version,
+const manifest = { format: 1, patchVersion: '2.7.1.0-r1', appVersion: packageInfo.Version,
   architecture:'x64', family: packageInfo.PackageFamilyName, files: {},
   dictionaryEntries: Object.keys(dictionary).length, translatedOccurrences: 0 };
 for (const name of (await fs.readdir(path.join(root, 'frontend'))).filter(x => x.endsWith('.js'))) {
@@ -39,7 +39,10 @@ manifest.hostSha256 = hash(await fs.readFile(path.join(root, 'Raycast.dll')));
 manifest.backendSha256 = hash(await fs.readFile(path.join(root, 'backend', 'index.mjs')));
 manifest.nodeSha256 = hash(await fs.readFile(path.join(root, 'backend', 'node.exe')));
 await fs.writeFile(path.join(out, 'manifest.json'), JSON.stringify(manifest, null, 2));
-await fs.writeFile(path.join(out, 'inject.js'), (await fs.readFile('src/inject.js','utf8')).replace('__DICTIONARY__', JSON.stringify(dictionary)));
+const releases = JSON.parse(await fs.readFile('translations/releases.json','utf8'));
+await fs.writeFile(path.join(out, 'inject.js'), (await fs.readFile('src/inject.js','utf8'))
+  .replace('__DICTIONARY__', () => JSON.stringify(dictionary))
+  .replace('__RELEASES__', () => JSON.stringify(releases)));
 await fs.rm(path.join(out,'NativeMenuHook.dll'),{force:true});
 await fs.copyFile('node_modules/acorn/dist/acorn.js',path.join(out,'acorn.cjs'));
 await fs.copyFile('node_modules/acorn/LICENSE',path.join(out,'Acorn-LICENSE.txt'));
