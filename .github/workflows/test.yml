@@ -11,3 +11,18 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+  bilibili:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: extensions/bilibili-search
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: extensions/bilibili-search/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm run build -- --output dist

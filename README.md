@@ -22,6 +22,10 @@ Raycast Windows Simplified Chinese Localization，支持主界面、设置、商
 
 ![Raycast 中文主界面](docs/screenshots/windows-main.png)
 
+## Windows 插件移植
+
+[哔哩哔哩搜索中文版](https://github.com/zwjtano/raycast-windows-zh-CN/releases/tag/bilibili-search-windows-v1.0.0) · [官方商店适配 PR](https://github.com/raycast/extensions/pull/32048)
+
 ## 注意
 
 Raycast 更新后需使用对应版本的汉化包。本组件使用本机调试接口，仅支持单用户场景。插件修改有备份，卸载时恢复；手动修改冲突会提示处理。

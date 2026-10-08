@@ -1,0 +1,75 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "bilibili-search",
+  "title": "哔哩哔哩搜索",
+  "description": "搜索哔哩哔哩视频，支持实时联想和本地搜索历史",
+  "icon": "command-icon.png",
+  "author": "55b",
+  "categories": [
+    "Web"
+  ],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "index",
+      "title": "搜索哔哩哔哩",
+      "subtitle": "Bilibili",
+      "description": "搜索哔哩哔哩视频、番剧、直播和用户",
+      "mode": "view",
+      "icon": "command-icon.png",
+      "preferences": [
+        {
+          "name": "rememberSearchHistory",
+          "title": "记住搜索历史",
+          "description": "在本机保存最近的哔哩哔哩搜索记录。",
+          "type": "checkbox",
+          "label": "记住搜索历史",
+          "required": false,
+          "default": false
+        },
+        {
+          "name": "useClipboardFallback",
+          "title": "使用剪贴板内容",
+          "description": "打开命令时，将剪贴板文字填入搜索框。",
+          "type": "checkbox",
+          "label": "使用剪贴板文字作为初始搜索内容",
+          "required": false,
+          "default": false
+        }
+      ],
+      "keywords": [
+        "bilibili",
+        "bili",
+        "b站",
+        "哔哩哔哩"
+      ]
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^2.7.1"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.1.1",
+    "@types/node": "20.8.10",
+    "@types/react": "^19.2.15",
+    "eslint": "^9.39.4",
+    "prettier": "^3.3.3",
+    "typescript": "^5.4.5"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "publish": "npx @raycast/api@latest publish",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "platforms": [
+    "macOS",
+    "Windows"
+  ],
+  "type": "module",
+  "contributors": [
+    "zwjacl"
+  ]
+}
