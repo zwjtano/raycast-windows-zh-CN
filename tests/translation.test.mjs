@@ -38,8 +38,7 @@ test('debug connections cannot target the network',()=>{
 const releases=JSON.parse(await fs.readFile(new URL('../translations/releases.json',import.meta.url),'utf8'));
 const inject=(await fs.readFile(new URL('../src/inject.js',import.meta.url),'utf8')).replace('__DICTIONARY__',()=>JSON.stringify(dictionary)).replace('__RELEASES__',()=>JSON.stringify(releases));
 
-test('reviewed release page translates every block and restores its banner and markup',()=>{
-  const release=releases['2.7.1.0'];
+for (const [version,release] of Object.entries(releases)) test(`reviewed release ${version} translates every block and restores its banner and markup`,()=>{
   const dom=new JSDOM(`<div data-is-base-view-root><header><span>${release.title}</span></header><div class="markdown__root_a"><img alt="image" src="${release.image}">${Object.keys(release.blocks).map(b=>`<p>${b}</p>`).join('')}<p>Unknown upstream content</p></div></div>`,{runScripts:'outside-only',pretendToBeVisual:true});
   const d=dom.window.document, original=d.body.innerHTML;
   dom.window.mainRouter={state:{location:{pathname:'/whats-new'}}};dom.window.eval(inject);
