@@ -2,7 +2,7 @@
 
 Raycast Windows Simplified Chinese Localization，支持主界面、设置、商店、更新日志和热门插件。非官方项目。
 
-**适配 Microsoft Store 版 Raycast 2.7.3.0 x64。**
+**适配 Microsoft Store 版 Raycast 2.8.0.0 x64。**
 
 [下载 Windows 版](https://github.com/zwjtano/raycast-windows-zh-CN/releases/latest) · [macOS 版](https://github.com/zwjtano/raycast-macos-zh-CN)
 
