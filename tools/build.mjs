@@ -18,12 +18,12 @@ Object.assign(dictionary, {
 });
 const packageInfo = JSON.parse(execFileSync('powershell.exe', ['-NoProfile', '-Command',
   "Get-AppxPackage Raycast.Raycast | Select-Object Version,InstallLocation,Architecture,PackageFamilyName | ConvertTo-Json -Compress"], {encoding:'utf8'}));
-if (packageInfo.Version !== '2.8.0.0') throw new Error('Only Raycast 2.8.0.0 has been reviewed.');
+if (packageInfo.Version !== '2.8.2.0') throw new Error('Only Raycast 2.8.2.0 has been reviewed.');
 const root = path.join(packageInfo.InstallLocation, 'Raycast');
-const out = 'dist/Raycast-Windows-2.8.0.0-zh-CN-r1';
+const out = 'dist/Raycast-Windows-2.8.2.0-zh-CN-r1';
 await fs.mkdir(out, { recursive: true });
 const hash = data => createHash('sha256').update(data).digest('hex');
-const manifest = { format: 1, patchVersion: '2.8.0.0-r1', appVersion: packageInfo.Version,
+const manifest = { format: 1, patchVersion: '2.8.2.0-r1', appVersion: packageInfo.Version,
   architecture:'x64', family: packageInfo.PackageFamilyName, files: {},
   dictionaryEntries: Object.keys(dictionary).length, translatedOccurrences: 0 };
 for (const name of (await fs.readdir(path.join(root, 'frontend'))).filter(x => x.endsWith('.js'))) {
