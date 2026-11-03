@@ -331,5 +331,48 @@
       "<strong>UI</strong>: Fixed an issue where some toasts could remain visibly stale": "<strong>界面</strong>：修复部分通知内容未及时更新的问题。",
       "<strong>UI</strong>: Fixed an issue where picking the Raycast glyph for some custom commands (ai, dictation, etc) would result in an empty tile icon without glyph": "<strong>界面</strong>：修复为 AI、语音输入等自定义命令选择 Raycast 图标后，显示为空白图标的问题。"
     }
+  },
+  "2.10.1.0": {
+    "title": "What's new in v2.10.1.0?",
+    "localizedTitle": "v2.10.1.0 更新内容",
+    "image": "https://misc-assets.raycast.com/releases/4c39b3164ea8ab721065f39ef351f1185700cf60ab79677dbf011f5b9ed47148.png",
+    "bannerSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"1200\" height=\"440\" viewBox=\"0 0 1200 440\"><defs><linearGradient id=\"bg\"><stop stop-color=\"#111114\"/><stop offset=\"1\" stop-color=\"#321017\"/></linearGradient></defs><rect width=\"1200\" height=\"440\" rx=\"16\" fill=\"url(#bg)\"/><circle cx=\"1060\" cy=\"225\" r=\"255\" fill=\"none\" stroke=\"#ff453a\" stroke-width=\"2\" opacity=\".5\"/><circle cx=\"1060\" cy=\"225\" r=\"200\" fill=\"none\" stroke=\"#ff453a\" stroke-width=\"32\" opacity=\".16\"/><g fill=\"#fff\" font-family=\"Segoe UI,Microsoft YaHei,sans-serif\"><text x=\"64\" y=\"95\" font-size=\"22\" letter-spacing=\"4\">v2.10</text><text x=\"60\" y=\"215\" font-size=\"76\" font-weight=\"600\">笔记焕新</text><text x=\"64\" y=\"291\" font-size=\"27\" fill=\"#d8ccd0\">图片与动图 · 拖放排序 · 无限笔记</text><text x=\"64\" y=\"380\" font-size=\"20\" fill=\"#aa9299\">Raycast 更新日志</text></g></svg>",
+    "blocks": {
+      "In this week's release, we've made a bunch of updates to Raycast Notes, some of which have been highly requested!": "本周更新为 Raycast 笔记带来了多项改进，其中包括大家期待已久的功能！",
+      "Your notes can now support images, including gifs! Drag and drop them onto your notes, click and drag to re-order them, and even reference external image sources in markdown. They all display the way you'd expect them to. We’ve also added the ability to re-order list items via drag and drop.": "笔记现在支持图片，包括 GIF 动图！将图片拖入笔记即可添加，拖动图片可调整顺序，也可以通过 Markdown 引用外部图片。我们还新增了拖放排序列表项的功能。",
+      "And while we're here, we've also decided to lift the 5 note limit on the free plan. This means that everyone can now create as many notes as needed.": "此外，我们取消了免费套餐最多 5 篇笔记的限制。现在每个人都可以按需创建任意数量的笔记。",
+      "✨ New": "✨ 新增功能",
+      "<strong>AI Chat</strong>: Added support for searching and mentioning items from compatible AI Extensions directly from the <code>@</code> menu, bringing their content into the conversation": "<strong>AI 对话</strong>：支持直接从 <code>@</code> 菜单搜索和引用兼容 AI 扩展中的项目，将其内容带入对话。",
+      "<strong>Games</strong>: Added an <code>Auto HDR</code> setting that turns HDR on while a game is in front and restores it afterwards": "<strong>游戏</strong>：新增<code>自动 HDR</code>设置，游戏位于前台时开启 HDR，结束后恢复原有状态。",
+      "<strong>Notes:</strong> You can now add images to notes": "<strong>笔记</strong>：现在可以在笔记中添加图片。",
+      "<strong>Notes:</strong> Free plan now gets unlimited notes": "<strong>笔记</strong>：免费套餐现在支持无限数量的笔记。",
+      "<strong>System Actions</strong>: Added an <code>Auto Dark Mode</code> command that switches Windows between light and dark modes at sunrise and sunset, using your location or a city you choose": "<strong>系统操作</strong>：新增<code>自动深色模式</code>命令，根据当前位置或指定城市的日出日落时间，切换 Windows 浅色和深色模式。",
+      "<strong>System Actions</strong>: <code>Seek Forward 10 Seconds</code> and <code>Seek Backward 10 Seconds</code> are now available to skip through whatever is playing": "<strong>系统操作</strong>：新增<code>快进 10 秒</code>和<code>快退 10 秒</code>命令，可调整当前媒体的播放位置。",
+      "💎 Improvements": "💎 功能改进",
+      "<strong>AI</strong>: Usage meters now warn in orange and red as you approach the limit": "<strong>AI</strong>：用量接近上限时，指示条会以橙色和红色提醒。",
+      "<strong>AI Chat</strong>: Table headers now stay visible while scrolling through long tables": "<strong>AI 对话</strong>：滚动浏览长表格时，表头保持可见。",
+      "<strong>AI Chat</strong>: Improved attachment layout and keyboard tab order in composer": "<strong>AI 对话</strong>：优化输入框中的附件布局和键盘 Tab 导航顺序。",
+      "<strong>AI Chat</strong>: Improved&nbsp;<code>ctrl+P</code>&nbsp;search and show chat statuses while browsing": "<strong>AI 对话</strong>：改进 <code>ctrl+P</code> 搜索，并在浏览时显示对话状态。",
+      "<strong>AI Chat</strong>: Long chats now open, scroll, and stream replies faster while using less memory": "<strong>AI 对话</strong>：长对话打开、滚动和流式回复速度更快，同时减少内存占用。",
+      "<strong>Dictation:</strong> Post-processing improvements to reduce unwanted em dashes and unexpected whitespace": "<strong>语音输入</strong>：改进后处理，减少不必要的破折号和意外空白。",
+      "<strong>Notes:</strong> You can now drag and drop list items": "<strong>笔记</strong>：现在可以拖放列表项。",
+      "<strong>Notes</strong>: Clicking a checkbox while holding <code>ctrl</code> will also complete its children": "<strong>笔记</strong>：按住 <code>ctrl</code> 点击复选框时，也会将其子项标记为完成。",
+      "<strong>Search</strong>: Improved performance of translation queries": "<strong>搜索</strong>：提升翻译查询性能。",
+      "<strong>System</strong>: Improved performance under disk and memory pressure on systems with 4 GB and 8 GB of RAM": "<strong>系统</strong>：改善 4 GB 和 8 GB 内存设备在磁盘与内存压力下的性能。",
+      "🐞 Fixes": "🐞 问题修复",
+      "<strong>Action Panel</strong>: Fixed searching extension actions by their keywords or section title": "<strong>操作面板</strong>：修复按关键词或分区标题搜索扩展操作的问题。",
+      "<strong>AI:</strong> Added the same reasoning effort shortcut to model preference": "<strong>AI</strong>：在模型偏好设置中添加相同的推理强度快捷键。",
+      "<strong>AI Chat</strong>: Fixed multiple sign-in windows opening when using several tools from the same extension": "<strong>AI 对话</strong>：修复使用同一扩展的多个工具时打开多个登录窗口的问题。",
+      "<strong>Emoji Picker</strong>: Fixed an issue where the empty state would show whilst loading AI suggestions": "<strong>表情选择器</strong>：修复加载 AI 建议时显示空状态的问题。",
+      "<strong>Extensions</strong>: Fixed typing freezes when filtering lists that contain items with very long text": "<strong>扩展</strong>：修复筛选包含超长文本项目的列表时输入卡顿的问题。",
+      "<strong>Focus</strong>: Fixed an issue where Focus could interfere with typing in a browser's address bar while checking the page URL": "<strong>专注</strong>：修复检查网页地址时干扰浏览器地址栏输入的问题。",
+      "<strong>Import:</strong> Fixed an issue where unknown icons imported from v1 could mismatch and show no icon": "<strong>导入</strong>：修复从 v1 导入的未知图标匹配错误或不显示的问题。",
+      "<strong>MCP</strong>: Fixed connection timeouts with servers that use streaming HTTP responses": "<strong>MCP</strong>：修复连接使用流式 HTTP 响应的服务器时超时的问题。",
+      "<strong>Quicklinks</strong>: Fixed copying a personal Quicklink not updating its usage count": "<strong>快捷链接</strong>：修复复制个人快捷链接后使用次数未更新的问题。",
+      "<strong>Snippets &amp; Quicklinks</strong>: Fixed stale dynamic placeholder values when copying Quicklinks or copying and pasting snippets": "<strong>文本片段与快捷链接</strong>：修复复制快捷链接或复制粘贴文本片段时，动态占位符的值未及时更新的问题。",
+      "<strong>System</strong>: Fixed windows flashing or blinking when Windows switches between light and dark theme": "<strong>系统</strong>：修复 Windows 切换浅色和深色主题时窗口闪烁的问题。",
+      "<strong>System</strong>: Fixed gray backgrounds appearing in Raycast windows after a theme change": "<strong>系统</strong>：修复切换主题后 Raycast 窗口出现灰色背景的问题。",
+      "<strong>UI</strong>: Fixed a regression preventing compact mode users from seeing toasts": "<strong>界面</strong>：修复紧凑模式用户无法看到通知的回归问题。"
+    }
   }
 }
