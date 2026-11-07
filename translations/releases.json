@@ -374,5 +374,46 @@
       "<strong>System</strong>: Fixed gray backgrounds appearing in Raycast windows after a theme change": "<strong>系统</strong>：修复切换主题后 Raycast 窗口出现灰色背景的问题。",
       "<strong>UI</strong>: Fixed a regression preventing compact mode users from seeing toasts": "<strong>界面</strong>：修复紧凑模式用户无法看到通知的回归问题。"
     }
+  },
+  "2.11.0.0": {
+    "title": "What's new in v2.11.0.0?",
+    "localizedTitle": "v2.11.0.0 更新内容",
+    "image": "https://misc-assets.raycast.com/releases/c16d4ee96e3f348b5628cf193efc7e8fce1aa1521b48979b4b2b5fc0f9dba03e.png",
+    "bannerSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"1200\" height=\"440\" viewBox=\"0 0 1200 440\"><defs><linearGradient id=\"bg\"><stop stop-color=\"#111114\"/><stop offset=\"1\" stop-color=\"#321017\"/></linearGradient></defs><rect width=\"1200\" height=\"440\" rx=\"16\" fill=\"url(#bg)\"/><circle cx=\"1060\" cy=\"225\" r=\"255\" fill=\"none\" stroke=\"#ff453a\" stroke-width=\"2\" opacity=\".5\"/><circle cx=\"1060\" cy=\"225\" r=\"200\" fill=\"none\" stroke=\"#ff453a\" stroke-width=\"32\" opacity=\".16\"/><g fill=\"#fff\" font-family=\"Segoe UI,Microsoft YaHei,sans-serif\"><text x=\"64\" y=\"95\" font-size=\"22\" letter-spacing=\"4\">v2.11</text><text x=\"60\" y=\"215\" font-size=\"76\" font-weight=\"600\">向 AI 口述</text><text x=\"64\" y=\"291\" font-size=\"27\" fill=\"#d8ccd0\">语音提问 · 屏幕感知 · 上下文理解</text><text x=\"64\" y=\"380\" font-size=\"20\" fill=\"#aa9299\">Raycast 更新日志</text></g></svg>",
+    "blocks": {
+      "Today we’re introducing Dictate to AI, a new command that combines what you say with context from your focused app to give you relevant AI responses in fewer steps. You can turn context on or off in the command settings.": "本次推出“向 AI 口述”新命令，将你说的内容与当前应用的上下文结合，用更少的步骤获得相关的 AI 回复。你可以在命令设置中开启或关闭上下文。",
+      "<strong>Tip:</strong> Assign a hotkey like Alt + A to Dictate to AI for even quicker access.": "<strong>提示：</strong>为“向 AI 口述”设置 Alt + A 等快捷键，即可更快使用。",
+      "✨ New": "✨ 新增功能",
+      "<strong>Dictation:</strong> The all new <code>Dictate to AI</code> command, allowing you to easily go from talking to responses in seconds": "<strong>语音输入</strong>：全新<code>向 AI 口述</code>命令，让你在几秒内从口述内容获得回复。",
+      "<strong>Dictation</strong>: A brand new dictation AI extension, allowing you to effortlessly use your transcriptions in AI chats and manage your styles and get feedback on them": "<strong>语音输入</strong>：全新语音输入 AI 扩展，可轻松在 AI 对话中使用转写内容、管理风格并获取相关反馈。",
+      "<strong>Extensions</strong>: Added an option to copy settings, history, and shortcuts when forking an extension and disable the original extension": "<strong>扩展</strong>：派生扩展时新增选项，可复制设置、历史记录和快捷键，并禁用原扩展。",
+      "<strong>Screen Awareness:</strong> New <code>Send Element to AI</code> command, allowing you to hover over anything on your screen, like a paragraph, an image or a button, and click to send it to AI Chat": "<strong>屏幕感知</strong>：新增<code>发送元素到 AI</code>命令，将鼠标悬停在段落、图片或按钮等屏幕元素上，点击即可发送到 AI 对话。",
+      "<strong>Screen Awareness:</strong> New <code>Send Window to AI</code> command, allowing you to send a whole window to AI Chat": "<strong>屏幕感知</strong>：新增<code>发送窗口到 AI</code>命令，可将整个窗口发送到 AI 对话。",
+      "💎 Improvements": "💎 功能改进",
+      "<strong>AI Chat</strong>: Allowed renaming chats before the first response finishes": "<strong>AI 对话</strong>：首条回复尚未完成时也可以重命名对话。",
+      "<strong>AI Chat</strong>: Improved handling of unavailable models": "<strong>AI 对话</strong>：改善模型不可用时的处理。",
+      "<strong>Dictation:</strong> Improved post-processing quality and performance": "<strong>语音输入</strong>：提升后处理质量和性能。",
+      "<strong>Extensions</strong>: Allowed selecting and copying text from setup instructions": "<strong>扩展</strong>：支持选择并复制设置说明中的文本。",
+      "<strong>Extensions</strong>: Improved rendering performance for large inline images": "<strong>扩展</strong>：提升大型内嵌图片的渲染性能。",
+      "<strong>Proxy</strong>: Added support for proxy auto-configuration (PAC) scripts when <strong>Use System Proxy Settings</strong> is on": "<strong>代理</strong>：开启<strong>使用系统代理设置</strong>时，支持代理自动配置（PAC）脚本。",
+      "<strong>Proxy</strong>: Proxy setting changes now apply without restarting Raycast": "<strong>代理</strong>：更改代理设置无需重启 Raycast 即可生效。",
+      "<strong>System</strong>: Improved reliability of foreground window switching": "<strong>系统</strong>：提高前台窗口切换的可靠性。",
+      "🐞 Fixes": "🐞 问题修复",
+      "<strong>AI Chat</strong>: Fixed premature timeouts while models from custom provider extensions were loading": "<strong>AI 对话</strong>：修复自定义提供商扩展的模型加载期间过早超时的问题。",
+      "<strong>AI Chat &amp; Quick AI</strong>: Fixed resumed background tasks and AI commands unexpectedly asking for input": "<strong>AI 对话与快捷 AI</strong>：修复恢复后台任务和 AI 命令时意外要求输入的问题。",
+      "<strong>Changelog</strong>: Fixed dates incorrectly displaying “0 months ago”": "<strong>更新日志</strong>：修复日期错误显示为“0 个月前”的问题。",
+      "<strong>Clipboard History</strong>: Fixed an issue where selection would default to the top when you have 20 or more pinned items": "<strong>剪贴板历史</strong>：修复固定项目达到 20 个或更多时，选择位置默认跳到顶部的问题。",
+      "<strong>Extensions</strong>: Fixed lists and grids permanently stopping to load more items when the extension was low on memory. They now resume once memory frees up": "<strong>扩展</strong>：修复内存不足后列表和网格永久停止加载更多项目的问题，现在会在内存释放后恢复加载。",
+      "<strong>MCP</strong>: Fixed connections to older HTTP servers, including Sketch": "<strong>MCP</strong>：修复连接旧版 HTTP 服务器（包括 Sketch）的问题。",
+      "<strong>Root Search</strong>: Fixed wrong sizing of AI command icons": "<strong>主搜索</strong>：修复 AI 命令图标尺寸错误的问题。",
+      "<strong>Search Screenshots</strong>: Fixed newly created screenshots sometimes failing to appear": "<strong>搜索截图</strong>：修复新创建的截图有时不显示的问题。",
+      "<strong>Search Screenshots</strong>: Fixed HEIC and HEIF images being skipped during indexing": "<strong>搜索截图</strong>：修复索引时跳过 HEIC 和 HEIF 图片的问题。",
+      "<strong>Settings</strong>: Fixed Settings search results sometimes loading slowly or incompletely when Bluetooth, Wi-Fi, or Energy Saver status checks stalled": "<strong>设置</strong>：修复蓝牙、Wi-Fi 或节能模式状态检查卡住时，设置搜索结果加载缓慢或不完整的问题。",
+      "<strong>System</strong>: Fixed a slow resource leak that built up the longer Raycast ran": "<strong>系统</strong>：修复随 Raycast 运行时间增长而逐渐累积的资源泄漏。",
+      "<strong>System</strong>: Fixed closing Raycast sometimes moving focus to the wrong window": "<strong>系统</strong>：修复关闭 Raycast 后焦点有时转移到错误窗口的问题。",
+      "<strong>UI</strong>: Improved performance when displaying long filenames, paths, and URLs": "<strong>界面</strong>：提升显示长文件名、路径和网址时的性能。",
+      "<strong>Updates</strong>: Fixed automatic updates not installing after opening and closing Raycast": "<strong>更新</strong>：修复打开并关闭 Raycast 后自动更新未安装的问题。",
+      "<strong>Updates</strong>: Raycast now reopens if an update fails to install": "<strong>更新</strong>：更新安装失败后，Raycast 现在会重新打开。"
+    }
   }
 }

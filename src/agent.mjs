@@ -6,12 +6,15 @@ import { createRequire } from 'node:module';
 
 export function applyEdits(source, entry) {
   if (createHash('sha256').update(source).digest('hex') !== entry.sha256) throw new Error('Resource fingerprint mismatch');
-  let result = source;
+  const chunks = [];
+  let end = source.length;
   for (const e of entry.edits) {
-    if (result.slice(e.start, e.end) !== e.original) throw new Error('Invalid translation offset');
-    result = result.slice(0, e.start) + e.replacement + result.slice(e.end);
+    if (!Number.isInteger(e.start) || !Number.isInteger(e.end) || e.start < 0 || e.end < e.start || e.end > end || source.slice(e.start, e.end) !== e.original) throw new Error('Invalid translation offset');
+    chunks.push(source.slice(e.end, end), e.replacement);
+    end = e.start;
   }
-  return result;
+  chunks.push(source.slice(0, end));
+  return chunks.reverse().join('');
 }
 
 export class CDP {
@@ -136,9 +139,17 @@ export async function quitRaycast(configPath) {
   const target=targets.find(t=>t.url===prefix+'main-window.html');
   if(!target) return;
   const names=(await fs.readdir(path.join(config.appRoot,'frontend'))).filter(x=>/^services-.*\.js$/.test(x));
-  if(names.length!==1) throw new Error('Unrecognized services module');
+  let moduleName=names[0], exportName='t';
+  if(names.length!==1) {
+    const manifest=JSON.parse(await fs.readFile(path.join(config.bundle,'manifest.json'),'utf8'));
+    moduleName='startup-C67diB7j.js'; exportName='gi';
+    const entry=manifest.files[moduleName];
+    if(manifest.appVersion!=='2.11.0.0' || !entry) throw new Error('Unrecognized services module');
+    const source=await fs.readFile(path.join(config.appRoot,'frontend',moduleName));
+    if(createHash('sha256').update(source).digest('hex')!==entry.sha256) throw new Error('Resource fingerprint mismatch');
+  }
   const c=new CDP(target.webSocketDebuggerUrl);
-  try { await c.send('Runtime.evaluate',{expression:`import(${JSON.stringify('./'+names[0])}).then(m=>m.t.ipc.host.raycast.quit())`}); }
+  try { await c.send('Runtime.evaluate',{expression:`import(${JSON.stringify('./'+moduleName)}).then(m=>m[${JSON.stringify(exportName)}].ipc.host.raycast.quit())`}); }
   finally { c.close(); }
   return true;
 }

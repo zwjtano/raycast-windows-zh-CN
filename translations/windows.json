@@ -373,5 +373,12 @@
   "Keep Awake": "保持唤醒",
   "45m, 2h, until 6pm (up to 7 days)": "45m、2h、until 6pm（最长 7 天）",
   "Unlimited Clipboard History, Translator, Themes, and more": "无限剪贴板历史、翻译、主题等更多功能",
-  "Network Monitoring Service": "网络监控服务"
+  "Network Monitoring Service": "网络监控服务",
+  "Usage limit resets": "用量额度重置时间",
+  "Couldn’t refresh usage": "无法刷新用量",
+  "Couldn’t refresh": "无法刷新",
+  "Refresh usage": "刷新用量",
+  "Builds shared context from conversations in this project and uses it in future chats. Memory is updated automatically every 3 hours.": "根据此项目中的对话建立共享上下文，并在后续对话中使用。记忆每 3 小时自动更新一次。",
+  "Automatically approves tool calls. Use with caution.": "自动批准工具调用。请谨慎使用。",
+  "Sandbox Agent Tools": "在沙箱中运行智能体工具"
 }

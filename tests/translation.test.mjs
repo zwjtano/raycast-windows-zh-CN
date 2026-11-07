@@ -31,6 +31,14 @@ test('fingerprints and original text are required before applying edits',()=>{
   assert.throws(()=>applyEdits(source+';',entry),/fingerprint/);
   assert.throws(()=>applyEdits(source,{...entry,edits:[{...edits[0],original:'wrong'}]}),/offset/);
 });
+test('large bundles preserve untouched text and reject overlapping edits',()=>{
+  const source='abc|'.repeat(20000);
+  const edits=Array.from({length:20000},(_,i)=>({start:i*4,end:i*4+3,original:'abc',replacement:'中文'})).reverse();
+  const entry={sha256:createHash('sha256').update(source).digest('hex'),edits};
+  assert.equal(applyEdits(source,entry),'中文|'.repeat(20000));
+  assert.throws(()=>applyEdits(source,{...entry,edits:[edits[0],edits[0]]}),/offset/);
+  assert.throws(()=>applyEdits(source,{...entry,edits:[...edits].reverse()}),/offset/);
+});
 test('debug connections cannot target the network',()=>{
   assert.throws(()=>new CDP('ws://example.com:1234/test'),/loopback/);
   assert.throws(()=>new CDP('wss://127.0.0.1:1234/test'),/loopback/);
