@@ -2,7 +2,7 @@ import { parse } from 'acorn';
 
 // Translate display properties only. Never replace strings globally: the same
 // English word can be an enum, an API parameter, a route, or a storage key.
-const displayKeys = new Set(['title', 'subtitle', 'description', 'label',
+const displayKeys = new Set(['title', 'subtitle', 'description', 'descriptionLines', 'label',
   'placeholder', 'searchBarPlaceholder', 'navigationTitle', 'tooltip',
   'message', 'emptyStateTitle', 'emptyStateDescription', 'children']);
 const options = { ecmaVersion: 'latest', sourceType: 'module' };

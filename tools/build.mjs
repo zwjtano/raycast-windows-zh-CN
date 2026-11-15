@@ -16,14 +16,14 @@ Object.assign(dictionary, {
   'Manage Extensions': '管理扩展', 'Installed Extensions': '已安装的扩展',
   'Search for apps and commands…': '搜索应用和命令…', 'Search for apps and commands...': '搜索应用和命令…'
 });
-const packageInfo = JSON.parse(execFileSync('powershell.exe', ['-NoProfile', '-Command',
+const packageInfo = JSON.parse(execFileSync('powershell.exe', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command',
   "Get-AppxPackage Raycast.Raycast | Select-Object Version,InstallLocation,Architecture,PackageFamilyName | ConvertTo-Json -Compress"], {encoding:'utf8'}));
-if (packageInfo.Version !== '2.11.0.0') throw new Error('Only Raycast 2.11.0.0 has been reviewed.');
+if (packageInfo.Version !== '2.12.1.0') throw new Error('Only Raycast 2.12.1.0 has been reviewed.');
 const root = path.join(packageInfo.InstallLocation, 'Raycast');
-const out = 'dist/Raycast-Windows-2.11.0.0-zh-CN-r1';
+const out = 'dist/Raycast-Windows-2.12.1.0-zh-CN-r1';
 await fs.mkdir(out, { recursive: true });
 const hash = data => createHash('sha256').update(data).digest('hex');
-const manifest = { format: 1, patchVersion: '2.11.0.0-r1', appVersion: packageInfo.Version,
+const manifest = { format: 1, patchVersion: '2.12.1.0-r1', appVersion: packageInfo.Version,
   architecture:'x64', family: packageInfo.PackageFamilyName, files: {},
   dictionaryEntries: Object.keys(dictionary).length, translatedOccurrences: 0 };
 for (const name of (await fs.readdir(path.join(root, 'frontend'))).filter(x => x.endsWith('.js'))) {

@@ -6,7 +6,15 @@
   "scripts": {
     "build": "node tools/build.mjs",
     "package": "node tools/package.mjs",
-    "test": "node --test tests/*.test.mjs"
+    "audit:ui": "node tools/audit-ui.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:fast": "node --test tests/dictionary.test.mjs tests/store.test.mjs tests/plugins.test.mjs tests/translation.test.mjs",
+    "test:dictionary": "node --test tests/dictionary.test.mjs",
+    "test:translation": "node --test tests/translation.test.mjs",
+    "test:store": "node --test tests/store.test.mjs",
+    "test:plugins": "node --test tests/plugins.test.mjs",
+    "test:install": "node --test tests/install-location.test.mjs",
+    "test:package": "node --test tests/package.test.mjs"
   },
   "devDependencies": {
     "acorn": "8.15.0",

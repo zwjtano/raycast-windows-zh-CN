@@ -106,7 +106,8 @@ try {
         if($runValue -and @($watchPaths|Where-Object {$runValue.Contains($_)}).Count -gt 0){Remove-ItemProperty -LiteralPath $runKey -Name 'Raycast-zh-CN'}
         Write-Host '[4/5] 恢复插件文件...'
         $patcher=Safe-Child 'bundle/plugin-patcher.cjs'
-        if(Test-Path -LiteralPath $patcher){
+        # A partial install can carry the marker without the local runtime.
+        if((Test-Path -LiteralPath $patcher) -and (Test-Path -LiteralPath $node)){
             $restored=& $node $patcher restore $installRoot
             if($LASTEXITCODE -ne 0){throw '插件文件在汉化后被手动修改，未覆盖这些文件。已保留插件备份，请先处理冲突再卸载。'}
         }
@@ -168,7 +169,10 @@ try {
         foreach($file in $files){Copy-Item -LiteralPath (Join-Path $PSScriptRoot $file) -Destination (Join-Path $bundle $file)}
         # MSIX does not allow external processes to execute its private Node.
         # Copy the user's existing runtime locally; it is not shipped in the ZIP.
-        Copy-Item -LiteralPath (Join-Path $root 'backend/node.exe') -Destination (Join-Path $bundle 'node.exe')
+        # Stream the bytes: a Store payload can be EFS-encrypted, and Copy-Item
+        # would fail trying to encrypt the local runtime the same way.
+        $source=[IO.File]::OpenRead((Join-Path $root 'backend/node.exe'));$target=[IO.File]::Create((Join-Path $bundle 'node.exe'))
+        try{$source.CopyTo($target,1MB)}finally{$target.Dispose();$source.Dispose()}
         $runtime=Join-Path $installRoot 'runtime';New-Item -ItemType Directory -Path $runtime -Force|Out-Null
         Write-Utf8 (Join-Path $runtime 'config.json') (@{bundle=$bundle;appRoot=$root;port=$port;resident=$true}|ConvertTo-Json)
         Write-Host "[3/$installSteps] 配置汉化，请允许管理员授权..."

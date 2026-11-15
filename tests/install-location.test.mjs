@@ -13,7 +13,8 @@ test('Explorer and packaged launchers resolve legacy installations; new installs
     const script=path.join(root,'resolve.ps1');
     fs.writeFileSync(script,'\ufeff'+prefix+'\n[Console]::Write($installRoot)', 'utf8');
     const local=path.join(root,'AppData','Local');
-    const resolve=()=>execFileSync('powershell.exe',['-NoProfile','-File',script],{cwd:os.tmpdir(),encoding:'utf8',env:{...process.env,USERPROFILE:root,LOCALAPPDATA:local}}).trim();
+    // Match the launchers: a scratch .ps1 must not depend on the machine policy.
+    const resolve=()=>execFileSync('powershell.exe',['-NoProfile','-ExecutionPolicy','Bypass','-File',script],{cwd:os.tmpdir(),encoding:'utf8',env:{...process.env,USERPROFILE:root,LOCALAPPDATA:local}}).trim();
     const sameDirectory=expected=>assert.equal(fs.realpathSync.native(resolve()).toLowerCase(),fs.realpathSync.native(expected).toLowerCase());
     const mark=p=>{fs.mkdirSync(p,{recursive:true});fs.writeFileSync(path.join(p,'installation.json'),JSON.stringify({product:'Raycast-zh-CN-Windows'}));};
     assert.equal(resolve(),path.join(root,'.raycast-zh-CN'));
