@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { translateSource } from '../src/transform.mjs';
-import { applyEdits, CDP } from '../src/agent.mjs';
+import { applyEdits, CDP, mainWindowModules } from '../src/agent.mjs';
 
 const dictionary={Cancel:'取消',Delete:'删除',Name:'名称',Tab:'标签页','Open Command':'打开命令',Command:'命令',Favorites:'收藏','AI Extension':'AI 扩展','AI Command':'AI 命令'};
 test('display translations preserve enum values, keys, imports and user data',()=>{
@@ -14,6 +14,10 @@ test('display translations preserve enum values, keys, imports and user data',()
   assert.match(output,/title:"取消"/);assert.match(output,/children:\["删除",f\(\)\]/);
   assert.match(output,/value:"Cancel",name:"Cancel",id:"Cancel",url:"Cancel"/);
   assert.match(output,/if\(x==="Cancel"\)run\("Cancel"\)/);
+});
+test('only display properties change: identifiers, routes, storage names and handlers stay',()=>{
+  const source='const a={id:"Cancel",name:"Cancel",value:"Cancel",url:"Cancel",key:"Cancel",icon:"Delete",route:"/Delete",path:"/Delete",type:"Delete",storage:"Name",action:run,options:{title:"Cancel"}};';
+  assert.equal(translateSource(source,dictionary).output,source.replace('options:{title:"Cancel"}','options:{title:"取消"}'));
 });
 test('templates with expressions and conditional predicates are preserved',()=>{
   const {output}=translateSource('const a={title:x==="Cancel"?"Delete":"Cancel",description:`Name ${user}`,label:`Name`};',dictionary);
@@ -38,6 +42,30 @@ test('large bundles preserve untouched text and reject overlapping edits',()=>{
   assert.equal(applyEdits(source,entry),'中文|'.repeat(20000));
   assert.throws(()=>applyEdits(source,{...entry,edits:[edits[0],edits[0]]}),/offset/);
   assert.throws(()=>applyEdits(source,{...entry,edits:[...edits].reverse()}),/offset/);
+});
+test('2.12 shutdown resolves the translated main window bundle, never the runtime',()=>{
+  const html='<script type="module" crossorigin src="./rolldown-runtime-BCiCTKAo.js"></script><script type="module" crossorigin src="./startup-pT87kq3o.js"></script>';
+  const manifest={files:{'startup-pT87kq3o.js':{sha256:'0'.repeat(64)}}};
+  assert.deepEqual(mainWindowModules(html,manifest),['startup-pT87kq3o.js']);
+  assert.deepEqual(mainWindowModules('<script src="./services-abc.js"></script>',{files:{}}),[]);
+});
+test('renderer sessions carry their own session id', async()=>{
+  const sent=[];
+  const Native=globalThis.WebSocket;
+  globalThis.WebSocket=class{
+    constructor(){setTimeout(()=>this.open?.(),0);}
+    addEventListener(type,fn){this[type]=fn;}
+    send(raw){const msg=JSON.parse(raw);sent.push(msg);setTimeout(()=>this.message?.({data:JSON.stringify({id:msg.id,result:{}})}),0);}
+    close(){}
+  };
+  try {
+    const c=new CDP('ws://127.0.0.1:1234/devtools/browser/test');
+    await c.send('Fetch.enable',{patterns:[]},'S-1');
+    await c.send('Fetch.enable',{patterns:[]});
+  } finally { globalThis.WebSocket=Native; }
+  assert.equal(sent.length,2);
+  assert.equal(sent[0].sessionId,'S-1');
+  assert.equal('sessionId' in sent[1],false);
 });
 test('debug connections cannot target the network',()=>{
   assert.throws(()=>new CDP('ws://example.com:1234/test'),/loopback/);
@@ -95,4 +123,16 @@ test('expanded root search translates AI type labels without renaming user comma
   dom.window.mainRouter={state:{location:{pathname:'/'}}};dom.window.eval(inject);
   assert.deepEqual([...dom.window.document.querySelectorAll('[class*=labelAccessory]')].map(e=>e.textContent),['AI 扩展','AI 命令']);
   assert.deepEqual([...dom.window.document.querySelectorAll('[class*=title_]')].map(e=>e.textContent),['Name','Name']);dom.window.close();
+});
+
+test('settings window translates host labels but never list rows or key caps',()=>{
+  const dom=new JSDOM('<div class="text__text_a">Cancel</div><div class="standard-list-item__root_b"><span class="text__text_c">Cancel</span></div><button class="base-button__root_d"><span class="text__text_e">Cancel</span></button><kbd><span class="text__text_f">Cancel</span></kbd>',{url:'file:///app/frontend/settings-window.html',runScripts:'outside-only',pretendToBeVisual:true});
+  const d=dom.window.document, original=d.body.innerHTML;
+  dom.window.eval(inject);
+  assert.equal(d.querySelector('.text__text_a').textContent,'取消');
+  assert.equal(d.querySelector('.text__text_e').textContent,'取消');
+  assert.equal(d.querySelector('.text__text_c').textContent,'Cancel');
+  assert.equal(d.querySelector('.text__text_f').textContent,'Cancel');
+  dom.window.__raycastZhCN.stop();
+  assert.equal(d.body.innerHTML,original);dom.window.close();
 });
