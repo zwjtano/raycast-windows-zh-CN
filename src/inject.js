@@ -19,6 +19,15 @@
     entry.set(key, { original, translated });
     count++;
   }
+  function translateTexts(element, skip) {
+    const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+      if (skip && node.parentElement.closest(skip)) continue;
+      const value = node.nodeValue, next = translate(value);
+      if (next !== value) { keep(node, 'text', value, next); node.nodeValue = next; }
+    }
+  }
   function visit(root) {
     if (!enabled || !root) return;
     // Prune removed React nodes so the resident translation layer cannot leak.
@@ -66,6 +75,15 @@
     for(const label of root.querySelectorAll('[class*="settings-window-view__navlink_"] span')) {
       if(label.textContent.trim()==='Windows Settings') elements.push(label);
     }
+    // The settings window prints labels the host supplies at runtime, so its own
+    // bundle never carries them. Reach its text primitives directly, but keep
+    // list rows out: there the text is an installed app's or extension's name.
+    if(location.pathname.endsWith('settings-window.html')) {
+      for(const label of root.querySelectorAll('[class*="text__text_"],[class*="statValueSuffix"]')) {
+        if(label.closest('[class*="standard-list-item"],[class*="shortcut__"],kbd,code,pre,input,textarea,[contenteditable]')) continue;
+        translateTexts(label);
+      }
+    }
     if(route === '/' || root.querySelector('[class*="root-search-nav-hint__"]')) {
       elements.push(...root.querySelectorAll('[class*="list__sectionHeaderTitle_"]'));
       for(const item of root.querySelectorAll('[class*="standard-list-item__root_"]')) {
@@ -80,13 +98,7 @@
     }
     for (const element of elements) {
       if (element.closest(excluded)) continue;
-      const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
-      while (walker.nextNode()) {
-        const node = walker.currentNode;
-        if (node.parentElement.closest(excluded)) continue;
-        const value = node.nodeValue, next = translate(value);
-        if (next !== value) { keep(node, 'text', value, next); node.nodeValue = next; }
-      }
+      translateTexts(element, excluded);
     }
   }
   const observer = new MutationObserver(() => {
