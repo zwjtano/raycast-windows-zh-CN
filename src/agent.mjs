@@ -142,9 +142,14 @@ export async function quitRaycast(configPath) {
   let moduleName=names[0], exportName='t';
   if(names.length!==1) {
     const manifest=JSON.parse(await fs.readFile(path.join(config.bundle,'manifest.json'),'utf8'));
-    moduleName='startup-C67diB7j.js'; exportName='gi';
+    const reviewed={
+      '2.11.0.0':['startup-C67diB7j.js','gi'],
+      '2.13.1.0':['main-window-k3hl20GT.js','Qi']
+    }[manifest.appVersion];
+    if(!reviewed) throw new Error('Unrecognized services module');
+    [moduleName,exportName]=reviewed;
     const entry=manifest.files[moduleName];
-    if(manifest.appVersion!=='2.11.0.0' || !entry) throw new Error('Unrecognized services module');
+    if(!entry) throw new Error('Unrecognized services module');
     const source=await fs.readFile(path.join(config.appRoot,'frontend',moduleName));
     if(createHash('sha256').update(source).digest('hex')!==entry.sha256) throw new Error('Resource fingerprint mismatch');
   }
